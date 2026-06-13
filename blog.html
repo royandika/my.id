@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Blog — Roy Andika, S.Kom., M.Kom.</title>
+  <meta name="description" content="Tulisan dan artikel seputar IT Infrastructure, Machine Learning, dan teknologi." />
+  <meta name="author" content="Roy Andika" />
+
+  <!-- Icons -->
+  <link rel="icon" href="https://cdn.pixelcave.com/favicon.svg" sizes="any" type="image/svg+xml" />
+  <link rel="icon" href="https://cdn.pixelcave.com/favicon.png" type="image/png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link
+    href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+  <!-- Design tokens identik dengan index.html -->
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+    @theme {
+      --default-font-family: "Inter";
+      --font-mono: "JetBrains Mono", ui-monospace, monospace;
+      --color-cream-50:  oklch(0.983 0.003 89);
+      --color-cream-100: oklch(0.974 0.004 89);
+      --color-cream-200: oklch(0.948 0.006 90);
+      --color-cream-300: oklch(0.918 0.005 90);
+      --color-cream-400: oklch(0.835 0.008 89);
+      --color-cream-500: oklch(0.677 0.009 89);
+      --color-cream-600: oklch(0.553 0.010 89);
+      --color-cream-700: oklch(0.408 0.007 89);
+      --color-cream-800: oklch(0.288 0.008 89);
+      --color-cream-900: oklch(0.205 0.007 89);
+      --color-cream-950: oklch(0.155 0.005 89);
+      --color-brand-50:  oklch(0.971 0.014 55);
+      --color-brand-100: oklch(0.929 0.038 60);
+      --color-brand-200: oklch(0.864 0.083 55);
+      --color-brand-300: oklch(0.789 0.142 51);
+      --color-brand-400: oklch(0.704 0.187 43);
+      --color-brand-500: oklch(0.636 0.225 36);
+      --color-brand-600: oklch(0.563 0.193 36);
+      --color-brand-700: oklch(0.470 0.158 38);
+      --color-brand-800: oklch(0.372 0.124 39);
+      --color-brand-900: oklch(0.281 0.092 39);
+      --color-brand-950: oklch(0.183 0.061 41);
+      --color-peach:    oklch(0.769 0.064 41);
+      --color-mint:     oklch(0.786 0.063 144);
+      --color-azure:    oklch(0.766 0.062 246);
+      --color-lavender: oklch(0.738 0.072 297);
+      --color-gold:     oklch(0.633 0.111 65);
+    }
+  </style>
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div x-data="{
+        darkMode: false,
+        toggleDarkMode() {
+          this.darkMode = !this.darkMode;
+          document.body.parentNode.classList.toggle('dark', this.darkMode);
+        }
+      }" class="min-h-dvh min-w-[320px] bg-cream-100 text-cream-900 dark:bg-cream-950 dark:text-cream-200">
+
+    <!-- TOP NAV -->
+    <header class="border-b border-cream-300 dark:border-white/10">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-10">
+        <a href="index.html" class="inline-flex items-baseline gap-1 font-medium tracking-tight">
+          roy.andika
+        </a>
+        <div class="flex items-center gap-2 sm:gap-5">
+          <nav class="hidden items-center gap-6 md:flex">
+            <a href="index.html#about"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">About</a>
+            <a href="index.html#experience"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Experience</a>
+            <a href="index.html#projects"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Projects</a>
+            <a href="blog.html" class="text-sm font-medium text-cream-900 dark:text-white">Blog</a>
+            <a href="index.html#contact"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Contact</a>
+          </nav>
+          <button x-on:click="toggleDarkMode()" type="button"
+            class="inline-flex size-9 items-center justify-center rounded-md text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white"
+            aria-label="Toggle theme">
+            <svg x-show="!darkMode" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              class="inline-block size-5">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <svg x-show="darkMode" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              class="inline-block size-5">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          </button>
+          <a href="javascript:void(0)"
+            class="inline-flex h-11 items-center gap-2 rounded-md bg-cream-900 px-5 text-sm font-medium text-cream-100 hover:bg-cream-800 dark:bg-white dark:text-cream-950 dark:hover:bg-white/90">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
+            </svg>
+            <span class="hidden sm:inline">Download CV</span>
+            <span class="sm:hidden">CV</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- END TOP NAV -->
+
+    <main class="mx-auto max-w-6xl px-5 lg:px-10">
+
+      <!-- HERO -->
+      <section class="border-b border-cream-300 py-16 dark:border-white/10">
+        <span
+          class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+          <span class="size-1.5 rounded-full bg-brand-500"></span>
+          Blog &amp; Tulisan
+        </span>
+        <h1 class="mt-4 text-4xl font-normal leading-tight tracking-[-0.02em] md:text-5xl">
+          Catatan teknis<span class="text-brand-500">.</span>
+        </h1>
+        <p class="mt-4 max-w-xl text-sm/relaxed text-cream-700 dark:text-cream-500">
+          Tulisan seputar IT infrastructure, machine learning, produktivitas dengan AI,
+          dan hal-hal teknis yang layak didokumentasikan.
+        </p>
+      </section>
+
+      <!-- TOOLBAR: meta + search + filter label -->
+      <section class="border-b border-cream-300 py-5 dark:border-white/10">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- Meta teks -->
+            <span id="blog-meta" class="font-mono text-xs text-cream-500 dark:text-cream-600">
+              Memuat…
+            </span>
+            <!-- Label filter chips — diisi JS -->
+            <div id="label-filters" class="flex flex-wrap gap-1.5"></div>
+          </div>
+
+          <!-- Search -->
+          <div class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-cream-400">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <input id="search-input" type="search" placeholder="Cari postingan…" class="h-9 w-56 rounded-md border border-cream-300 bg-white pl-9 pr-4 text-sm
+                     placeholder:text-cream-400 focus:border-brand-400 focus:outline-none
+                     dark:border-white/10 dark:bg-white/5 dark:text-cream-200
+                     dark:placeholder:text-cream-600 dark:focus:border-brand-500" />
+          </div>
+
+        </div>
+      </section>
+
+      <!-- POSTS LIST -->
+      <section class="py-8">
+
+        <!-- Loading spinner -->
+        <div id="state-loading" class="flex items-center justify-center py-24">
+          <span class="inline-flex items-center gap-3 font-mono text-sm text-cream-500">
+            <svg class="size-5 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+            </svg>
+            Mengambil data dari Blogger…
+          </span>
+        </div>
+
+        <!-- Error state -->
+        <div id="state-error"
+          class="hidden rounded-xl border border-cream-300 bg-white p-10 text-center dark:border-white/10 dark:bg-white/5">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+            class="mx-auto mb-3 size-8 text-cream-400">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 8v4" />
+            <path d="M12 16h.01" />
+          </svg>
+          <p class="font-mono text-sm text-cream-600 dark:text-cream-500" id="error-message">Gagal memuat.</p>
+          <button onclick="fetchPosts()" class="mt-5 inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm
+                   hover:bg-cream-50 dark:border-white/10 dark:hover:bg-white/5">
+            ↺ Coba lagi
+          </button>
+        </div>
+
+        <!-- Empty / no result -->
+        <div id="state-empty"
+          class="hidden rounded-xl border border-cream-300 bg-white p-10 text-center dark:border-white/10 dark:bg-white/5">
+          <p class="font-mono text-sm text-cream-500">Tidak ada postingan yang cocok.</p>
+          <button onclick="clearFilters()" class="mt-4 inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm
+                   hover:bg-cream-50 dark:border-white/10 dark:hover:bg-white/5">
+            Hapus filter
+          </button>
+        </div>
+
+        <!-- Posts list -->
+        <div id="posts-list" class="hidden overflow-hidden rounded-xl border border-cream-300 dark:border-white/10">
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="mt-6 hidden items-center justify-between">
+          <button id="btn-prev" onclick="changePage(-1)" class="inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm
+                   hover:bg-cream-50 disabled:cursor-not-allowed disabled:opacity-35
+                   dark:border-white/10 dark:hover:bg-white/5">
+            ← Sebelumnya
+          </button>
+          <span id="page-info" class="font-mono text-xs text-cream-500 dark:text-cream-600"></span>
+          <button id="btn-next" onclick="changePage(1)" class="inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm
+                   hover:bg-cream-50 disabled:cursor-not-allowed disabled:opacity-35
+                   dark:border-white/10 dark:hover:bg-white/5">
+            Berikutnya →
+          </button>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-cream-300 dark:border-white/10">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-sm text-cream-700 sm:flex-row sm:items-center lg:px-10 dark:text-cream-500">
+        <p>CV &copy;
+          <script>document.write(new Date().getFullYear());</script> · Roy Andika, S.Kom., M.Kom.
+        </p>
+        <p class="inline-flex items-center gap-1.5">
+          <span>Crafted with</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            class="inline-block size-4 text-brand-500">
+            <path
+              d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
+          </svg>
+          <span>by <a href="https://pixelcave.com"
+              class="font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">pixelcave</a></span>
+        </p>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       BLOGGER FEED ENGINE
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    // ══════════════════════════════════════════════════════════
+    // ⚙️  KONFIGURASI — sesuaikan bagian ini saja
+    // ══════════════════════════════════════════════════════════
+    const CONFIG = {
+      // URL blog Blogger Anda (tanpa trailing slash)
+      blogUrl: "https://blog.royandika.my.id",
+      postsPerPage: 10,     // postingan per halaman
+      summaryLength: 180,   // panjang ringkasan (karakter)
+      maxFetch: 500,   // maks postingan yang diambil dari feed
+    };
+    // ══════════════════════════════════════════════════════════
+
+    // Rotasi warna pastel per label
+    const COLORS = ["lavender", "azure", "mint", "peach", "gold"];
+    const colorCache = {};
+    let colorIdx = 0;
+    function labelColor(tag) {
+      if (!colorCache[tag]) colorCache[tag] = COLORS[colorIdx++ % COLORS.length];
+      return colorCache[tag];
+    }
+
+    // State
+    let allPosts = [];
+    let filtered = [];
+    let activeLabelFilter = null;
+    let currentPage = 1;
+
+    // DOM refs
+    const $ = id => document.getElementById(id);
+    const elLoading = $("state-loading");
+    const elError = $("state-error");
+    const elEmpty = $("state-empty");
+    const elList = $("posts-list");
+    const elPaginate = $("pagination");
+    const elMeta = $("blog-meta");
+    const elSearch = $("search-input");
+    const elFilters = $("label-filters");
+    const elBtnPrev = $("btn-prev");
+    const elBtnNext = $("btn-next");
+    const elPageInfo = $("page-info");
+
+    // ── Helpers ───────────────────────────────────────────────
+    function fmtDate(iso) {
+      return new Date(iso).toLocaleDateString("id-ID", {
+        day: "numeric", month: "long", year: "numeric"
+      });
+    }
+
+    function stripHtml(html) {
+      const d = document.createElement("div");
+      d.innerHTML = html;
+      return d.textContent || d.innerText || "";
+    }
+
+    function thumb(entry) {
+      const m = entry["media$thumbnail"];
+      if (m?.url) return m.url.replace(/\/s\d+\//, "/s480/");
+      const match = (entry.content?.$t || "").match(/<img[^>]+src=["']([^"']+)["']/i);
+      return match ? match[1] : null;
+    }
+
+    function labels(entry) {
+      return (entry.category || []).map(c => c.term);
+    }
+
+    function postUrl(entry) {
+      return (entry.link || []).find(l => l.rel === "alternate")?.href || "#";
+    }
+
+    // ── Render satu baris postingan ───────────────────────────
+    function renderRow(p, visibleIndex) {
+      const num = String(visibleIndex).padStart(2, "0");
+      const img = p.thumb
+        ? `<div class="relative h-full w-28 shrink-0 overflow-hidden sm:w-36">
+           <img src="${p.thumb}" alt="${p.title}"
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy" onerror="this.closest('div').remove()" />
+         </div>`
+        : "";
+
+      const chips = p.labels.length
+        ? p.labels.slice(0, 3).map(l =>
+          `<span class="rounded-full bg-${labelColor(l)}/25 px-2 py-0.5
+                        text-[10px] font-semibold uppercase tracking-tight
+                        text-cream-900 dark:text-cream-100">${l}</span>`
+        ).join("")
+        : `<span class="rounded-full bg-azure/25 px-2 py-0.5
+                      text-[10px] font-semibold uppercase tracking-tight
+                      text-cream-900 dark:text-cream-100">Blog</span>`;
+
+      return `
+      <article class="group flex min-h-[6.5rem] border-b border-cream-300 last:border-b-0
+                      bg-white hover:bg-cream-50 transition-colors duration-150
+                      dark:bg-transparent dark:hover:bg-white/4 dark:border-white/10">
+        ${img}
+        <a href="${p.url}" target="_blank" rel="noopener"
+           class="flex flex-1 flex-col justify-between gap-2 p-4 sm:p-5">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <div class="flex flex-wrap gap-1.5">${chips}</div>
+              <span class="font-mono text-[10px] text-cream-400 dark:text-cream-600">${num}</span>
+            </div>
+            <h2 class="mt-2.5 text-[0.9375rem] font-medium leading-snug tracking-tight
+                       line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400
+                       transition-colors duration-150">
+              ${p.title}
+            </h2>
+            <p class="mt-1.5 text-sm/relaxed text-cream-600 dark:text-cream-500 line-clamp-2">
+              ${p.summary}
+            </p>
+          </div>
+          <div class="flex items-center justify-between pt-1">
+            <span class="font-mono text-[11px] text-cream-400 dark:text-cream-600">${p.date}</span>
+            <span class="inline-flex items-center gap-1 text-[11px] font-medium text-brand-500
+                         opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+              Baca
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                class="size-3">
+                <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </article>`;
+    }
+
+    // ── Render halaman aktif ──────────────────────────────────
+    function renderPage() {
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / CONFIG.postsPerPage));
+      const start = (currentPage - 1) * CONFIG.postsPerPage;
+      const slice = filtered.slice(start, start + CONFIG.postsPerPage);
+
+      // Sembunyikan semua state dulu
+      [elError, elEmpty, elList, elPaginate].forEach(el => {
+        el.classList.add("hidden");
+        el.classList.remove("flex", "grid", "block");
+      });
+
+      if (total === 0) {
+        elEmpty.classList.remove("hidden");
+        return;
+      }
+
+      elList.innerHTML = slice.map((p, i) => renderRow(p, start + i + 1)).join("");
+      elList.classList.remove("hidden");
+
+      if (totalPages > 1) {
+        elPaginate.classList.remove("hidden");
+        elPaginate.classList.add("flex");
+        elPageInfo.textContent = `Hal. ${currentPage} / ${totalPages} · ${total} postingan`;
+        elBtnPrev.disabled = currentPage <= 1;
+        elBtnNext.disabled = currentPage >= totalPages;
+      }
+    }
+
+    // ── Terapkan semua filter aktif ───────────────────────────
+    function applyFilters() {
+      const q = elSearch.value.toLowerCase().trim();
+      filtered = allPosts.filter(p => {
+        const matchLabel = !activeLabelFilter || p.labels.includes(activeLabelFilter);
+        const matchSearch = !q || (
+          p.title.toLowerCase().includes(q) ||
+          p.summary.toLowerCase().includes(q) ||
+          p.labels.some(l => l.toLowerCase().includes(q))
+        );
+        return matchLabel && matchSearch;
+      });
+      currentPage = 1;
+      updateMeta();
+      renderPage();
+    }
+
+    // ── Update teks meta ──────────────────────────────────────
+    function updateMeta() {
+      const q = elSearch.value.trim();
+      const f = activeLabelFilter;
+      if (q || f) {
+        elMeta.textContent = `${filtered.length} dari ${allPosts.length} postingan`;
+      } else {
+        elMeta.textContent = `${allPosts.length} postingan`;
+      }
+    }
+
+    // ── Render chip filter label ──────────────────────────────
+    function renderLabelChips(posts) {
+      const counts = {};
+      posts.forEach(p => p.labels.forEach(l => counts[l] = (counts[l] || 0) + 1));
+      // Ambil label terbanyak, maks 8
+      const sorted = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+
+      elFilters.innerHTML = sorted.map(([lbl, count]) => {
+        const color = labelColor(lbl);
+        return `<button onclick="toggleLabel('${lbl}')"
+                id="chip-${lbl.replace(/\s+/g, '-')}"
+                class="label-chip rounded-full border border-cream-300 px-2.5 py-0.5
+                       text-[10px] font-semibold uppercase tracking-tight
+                       text-cream-700 hover:bg-cream-200
+                       dark:border-white/10 dark:text-cream-400 dark:hover:bg-white/10
+                       transition-colors duration-150">
+                ${lbl} <span class="opacity-50">${count}</span>
+              </button>`;
+      }).join("");
+    }
+
+    // ── Toggle filter label ───────────────────────────────────
+    function toggleLabel(label) {
+      activeLabelFilter = activeLabelFilter === label ? null : label;
+      // Update tampilan chip
+      document.querySelectorAll(".label-chip").forEach(btn => {
+        const isActive = btn.textContent.trim().startsWith(activeLabelFilter || "__none__");
+        btn.classList.toggle("bg-cream-900", isActive);
+        btn.classList.toggle("text-cream-50", isActive);
+        btn.classList.toggle("dark:bg-white", isActive);
+        btn.classList.toggle("dark:text-cream-950", isActive);
+        btn.classList.toggle("border-transparent", isActive);
+      });
+      applyFilters();
+    }
+
+    // ── Hapus semua filter ────────────────────────────────────
+    function clearFilters() {
+      activeLabelFilter = null;
+      elSearch.value = "";
+      applyFilters();
+      document.querySelectorAll(".label-chip").forEach(btn => {
+        btn.classList.remove("bg-cream-900", "text-cream-50", "dark:bg-white", "dark:text-cream-950", "border-transparent");
+      });
+    }
+
+    // ── Ganti halaman ─────────────────────────────────────────
+    function changePage(dir) {
+      currentPage += dir;
+      renderPage();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    // ── Fetch Blogger JSON Feed via JSONP (native, no CORS) ──
+    function fetchPosts() {
+      // Reset state
+      elLoading.classList.remove("hidden");
+      [elError, elEmpty, elList, elPaginate].forEach(el => {
+        el.classList.add("hidden");
+        el.classList.remove("flex");
+      });
+      elMeta.textContent = "Memuat…";
+
+      const cbName = "_blogFeedCb_" + Date.now();
+
+      const timer = setTimeout(() => {
+        cleanup();
+        showFetchError("Waktu habis. Periksa koneksi internet.");
+      }, 15000);
+
+      function cleanup() {
+        clearTimeout(timer);
+        delete window[cbName];
+        const old = document.getElementById("_blogFeedJsonp");
+        if (old) old.remove();
+      }
+
+      function showFetchError(msg) {
+        elLoading.classList.add("hidden");
+        $("error-message").textContent = msg;
+        elError.classList.remove("hidden");
+        elMeta.textContent = "Gagal memuat.";
+      }
+
+      window[cbName] = function (data) {
+        cleanup();
+        const entries = data.feed?.entry || [];
+        if (!entries.length) {
+          showFetchError("Feed kosong — blog ini belum memiliki postingan.");
+          return;
+        }
+
+        allPosts = entries.map((e, i) => ({
+          index: i + 1,
+          title: e.title?.$t || "(tanpa judul)",
+          summary: (e.summary?.$t
+            ? stripHtml(e.summary.$t)
+            : stripHtml(e.content?.$t || "")
+          ).trim().slice(0, CONFIG.summaryLength) + "…",
+          date: fmtDate(e.published?.$t || ""),
+          url: postUrl(e),
+          labels: labels(e),
+          thumb: thumb(e),
+        }));
+
+        filtered = [...allPosts];
+        elLoading.classList.add("hidden");
+        renderLabelChips(allPosts);
+        updateMeta();
+        renderPage();
+      };
+
+      const s = document.createElement("script");
+      s.id = "_blogFeedJsonp";
+      s.src = `${CONFIG.blogUrl}/feeds/posts/default` +
+        `?alt=json-in-script&callback=${cbName}&max-results=${CONFIG.maxFetch}&orderby=published`;
+      s.onerror = () => { cleanup(); showFetchError("Gagal memuat feed blog. Pastikan URL blog benar dan publik."); };
+      document.head.appendChild(s);
+    }
+
+    // ── Event listeners ───────────────────────────────────────
+    elSearch.addEventListener("input", applyFilters);
+
+    // ── Boot ─────────────────────────────────────────────────
+    fetchPosts();
+  </script>
+
+</body>
+
+</html>

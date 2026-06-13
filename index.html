@@ -1,711 +1,981 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en" class="dark">
 
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Roy Andika | Web, IT, and AI Expert</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description"
-		content="Welcome to Roy Andika's portfolio! Expert in Web Programming, IT Consulting, Network Engineering, and AI/ML. Explore cutting-edge solutions and innovative strategies tailored for you." />
-	<meta name="keywords"
-		content="Roy Andika, Web Programmer, IT Consultant, Network Engineer, Program Analyst, Data Scientist, AI Specialist, Machine Learning Expert, IT Solutions, Technology Portfolio" />
-	<meta name="author" content="Roy Andika" />
-	<meta name="robots" content="index, follow" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
 
-	<link rel="icon" href="favicon.ico" type="image/x-icon">
-	<link rel="canonical" href="https://www.royandika.my.id/" />
+  <title>Roy Andika, M.Kom. — IT Professional, AI & Information System Specialist</title>
 
-	<!-- 
-	//////////////////////////////////////////////////////
+  <meta name="description"
+    content="Portfolio & CV online Roy Andika — IT Professional, AI & Information System Specialist. Berbasis di Pontianak, Kalimantan Barat, Indonesia." />
+  <meta name="author" content="Roy Andika" />
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+  <!-- Icons -->
+  <link rel="icon" href="https://cdn.pixelcave.com/favicon.svg" sizes="any" type="image/svg+xml" />
+  <link rel="icon" href="https://cdn.pixelcave.com/favicon.png" type="image/png" />
 
-	//////////////////////////////////////////////////////
-	 -->
+  <!-- Inter + JetBrains Mono web fonts from bunny.net (GDPR compliant) -->
+  <link rel="preconnect" href="https://fonts.bunny.net" />
+  <link
+    href="https://fonts.bunny.net/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
 
-	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content="Roy Andika | Expert Web Programmer & IT Consultant" />
-	<meta property="og:image" content="images/1.jpg" />
-	<meta property="og:url" content="https://www.royandika.my.id" />
-	<meta property="og:site_name" content="RoyAndika.my.id" />
-	<meta property="og:description"
-		content="Discover Roy Andika's expertise in Web Programming, IT Consulting, Data Science, and AI/Machine Learning. A passionate tech professional delivering innovative solutions." />
-	<meta name="twitter:title" content="Roy Andika | Web Programmer & IT Specialist" />
-	<meta name="twitter:description"
-		content="Explore the portfolio of Roy Andika, an IT expert specializing in Web Development, Data Science, and AI." />
-	<meta name="twitter:image" content="images/1.jpg" />
-	<meta name="twitter:url" content="https://www.royandika.my.id" />
-	<meta name="twitter:card" content="summary_large_image" />
+  <!-- Tailwind CSS Play CDN (mostly for development/testing purposes) -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-	<link
-		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-		rel="stylesheet">
+  <!-- Tailwind CSS v4 Configuration -->
+  <style type="text/tailwindcss">
+    /* Class based dark mode */
+      @custom-variant dark (&:where(.dark, .dark *));
 
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<!--<link rel="stylesheet" href="css/bootstrap.css">-->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
-		integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      /* Theme configuration */
+      @theme {
+        /* Fonts */
+        --default-font-family: "Inter";
+        --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/custom.css">
+        /* Cream */
+        --color-cream-50: oklch(0.983 0.003 89);
+        --color-cream-100: oklch(0.974 0.004 89);
+        --color-cream-200: oklch(0.948 0.006 90);
+        --color-cream-300: oklch(0.918 0.005 90);
+        --color-cream-400: oklch(0.835 0.008 89);
+        --color-cream-500: oklch(0.677 0.009 89);
+        --color-cream-600: oklch(0.553 0.010 89);
+        --color-cream-700: oklch(0.408 0.007 89);
+        --color-cream-800: oklch(0.288 0.008 89);
+        --color-cream-900: oklch(0.205 0.007 89);
+        --color-cream-950: oklch(0.155 0.005 89);
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
+        /* Brand */
+        --color-brand-50: oklch(0.971 0.014 55);
+        --color-brand-100: oklch(0.929 0.038 60);
+        --color-brand-200: oklch(0.864 0.083 55);
+        --color-brand-300: oklch(0.789 0.142 51);
+        --color-brand-400: oklch(0.704 0.187 43);
+        --color-brand-500: oklch(0.636 0.225 36);
+        --color-brand-600: oklch(0.563 0.193 36);
+        --color-brand-700: oklch(0.470 0.158 38);
+        --color-brand-800: oklch(0.372 0.124 39);
+        --color-brand-900: oklch(0.281 0.092 39);
+        --color-brand-950: oklch(0.183 0.061 41);
 
-	<!-- Anti Adblock JS 
-	<script src="js/anti-adblock.js"></script>-->
+        /* Timeline pastels */
+        --color-peach: oklch(0.769 0.064 41);
+        --color-mint: oklch(0.786 0.063 144);
+        --color-azure: oklch(0.766 0.062 246);
+        --color-lavender: oklch(0.738 0.072 297);
+        --color-gold: oklch(0.633 0.111 65);
+      }
+    </style>
 
-	<!-- Leaflet.js Map -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
-		integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
-		integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
-
-	<script src="https://cdn.jsdelivr.net/npm/ol@v10.2.1/dist/ol.js"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@v10.2.1/ol.css">
-
-	<!-- Google Tag Manager -->
-	<script>(function (w, d, s, l, i) {
-			w[l] = w[l] || []; w[l].push({
-				'gtm.start':
-					new Date().getTime(), event: 'gtm.js'
-			}); var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-					'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-		})(window, document, 'script', 'dataLayer', 'GTM-KNSKQL2G');</script>
-	<!-- End Google Tag Manager -->
-
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-6VBMJVE9S9"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'G-6VBMJVE9S9');
-	</script>
-
+  <!-- Alpine.js (x-cloak) -->
+  <style>
+    [x-cloak] {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KNSKQL2G" height="0" width="0"
-			style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<div class="fh5co-loader"></div>
+  <!-- Page Container -->
+  <div x-data="{
+        darkMode: true,
+        toggleDarkMode() {
+          this.darkMode = ! this.darkMode;
+          if (this.darkMode) {
+            document.body.parentNode.classList.add('dark');
+          } else {
+            document.body.parentNode.classList.remove('dark');
+          }
+        }
+      }" class="min-h-dvh min-w-[320px] bg-cream-100 text-cream-900 dark:bg-cream-950 dark:text-cream-200">
+    <!-- Top Nav -->
+    <header class="border-b border-cream-300 dark:border-white/10">
+      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-10">
+        <!-- Wordmark -->
+        <a href="https://www.royandika.my.id" class="inline-flex items-baseline gap-1 font-medium tracking-tight">
+          royandika.my.id
+        </a>
+        <!-- END Wordmark -->
 
-	<div id="page">
-		<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner"
-			style="background-image:url(images/cover_bg_3.jpg);" data-stellar-background-ratio="0.5">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<div class="display-t js-fullheight">
-							<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-								<div class="profile-thumb" style="background: url(images/foto-profil-square-2025.jpg);"></div>
-								<h1><span>Roy Andika</span></h1>
-								<h3><span>Web Programmer • Network Engineer • IT Consultant • Data Scientist </span>
-								</h3>
-								<p>
-								<ul class="fh5co-social-icons">
-									<li><a href="https://www.linkedin.com/in/royandika/" target="_blank"
-											rel="nofollow"><i class="icon-linkedin2"></i></a></li>
-									<li><a href="https://www.facebook.com/royandikaId" target="_blank" rel="nofollow"><i
-												class="icon-facebook2"></i></a></li>
-									<li><a href="https://www.instagram.com/royandika" target="_blank" rel="nofollow"><i
-												class="icon-instagram2"></i></a></li>
-									<li><a href="https://x.com/RoyAndika" target="_blank" rel="nofollow"><i
-												class="icon-twitter2"></i></a></li>
-								</ul>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
+        <!-- Right side: nav + actions -->
+        <div class="flex items-center gap-2 sm:gap-5">
+          <nav class="hidden items-center gap-6 md:flex">
+            <a href="#about"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">About</a>
+            <a href="#experience"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Experience</a>
+            <a href="#projects"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Projects</a>
+            <a href="#contact"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Contact</a>
+          </nav>
 
-		<div id="fh5co-about" class="animate-box">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>About Me</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-4">
-						<ul class="info">
-							<li><span class="first-block">Full Name:</span><span class="second-block">Roy Andika,
-									M.Kom.</span></li>
-							<li><span class="first-block">Whatsapp:</span><span class="second-block"><a
-										href="https://s.id/wa_iwira" rel="nofollow" target="_blank"">https://s.id/wa_iwira</a></span></li>
-						<li><span class=" first-block">Email:</span><span class="second-block"><a href="mailto:contact@royandika.my.id"
-										rel="nofollow" target="_blank"">contact@royandika.my.id</a></span></li>
-						<li><span class=" first-block">Website:</span><span class="second-block"><a href="https://www.royandika.my.id"
-										rel="nofollow" target="_blank"">www.royandika.my.id</a></span></li>
-						<li><span class=" first-block">Address:</span><span class="second-block">Pontianak City, West Kalimantan,
-									Indonesia</span></li>
-							<li><span class=" first-block">&nbsp;</span><span class="second-block"><a
-										href="https://drive.google.com/file/d/11JfHK7vPqR825hJrnKMGR04B7UBXD14k/view?usp=sharing"
-										class="btn btn-warning btn-lg" target="_blank" rel="nofollow">Download
-										CV</a></span></li>
-						</ul>
-					</div>
-					<div class="col-md-8">
-						<h2>Love what you do, do what you love!</h2>
-						<p>With a passion for unraveling IT challenges, I thrive on finding solutions in every digital
-							puzzle. Guided by the motto "Greatness comes through Opportunity, and Opportunity arises
-							from Difficulty," I view shortcomings not as barriers to the future but as springboards to
-							unleash untapped potential.</p>
-						<p>
-							<script async
-								src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7871062608972422"
-								crossorigin="anonymous"></script>
-							<!-- Responsive_horizontal_RoyAndika.my.id -->
-							<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7871062608972422"
-								data-ad-slot="5023854427" data-ad-format="auto" data-full-width-responsive="true"></ins>
-							<script>
-								(adsbygoogle = window.adsbygoogle || []).push({});
-							</script>
-						</p>
-						<p>In my journey, I embrace adversity as a catalyst for personal growth and innovation. As an IT
-							enthusiast, I navigate through complexities with determination, believing that every problem
-							holds the key to advancement. My relentless pursuit of excellence stems from a deep-rooted
-							belief in the transformative power of perseverance and resilience.</p>
-						<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="https://twitter.com/RoyAndika" rel="nofollow" target="_blank"><i
-										class="icon-twitter2"></i></a></li>
-							<li><a href="https://www.facebook.com/royandikaId" rel="nofollow" target="_blank"><i
-										class="icon-facebook3"></i></a></li>
-							<li><a href="https://www.linkedin.com/in/royandika/" rel="nofollow" target="_blank"><i
-										class="icon-linkedin2"></i></a></li>
-							<li><a href="https://www.instagram.com/royandika/" rel="nofollow" target="_blank"><i
-										class="icon-instagram2"></i></a></li>
-						</ul>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
+          <!-- Toggle Dark Mode -->
+          <button x-on:click="toggleDarkMode()" type="button"
+            class="inline-flex size-9 items-center justify-center rounded-md text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white"
+            aria-label="Toggle theme">
+            <svg x-show="!darkMode" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              class="inline-block size-5">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2" />
+              <path d="M12 20v2" />
+              <path d="m4.93 4.93 1.41 1.41" />
+              <path d="m17.66 17.66 1.41 1.41" />
+              <path d="M2 12h2" />
+              <path d="M20 12h2" />
+              <path d="m6.34 17.66-1.41 1.41" />
+              <path d="m19.07 4.93-1.41 1.41" />
+            </svg>
+            <svg x-show="darkMode" x-cloak xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+              class="inline-block size-5">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+          </button>
 
-		<div id="fh5co-resume" class="fh5co-bg-color">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>My Resume</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 col-md-offset-0">
-						<ul class="timeline">
-							<li class="timeline-heading text-center animate-box">
-								<div>
-									<h3>Work Experience</h3>
-								</div>
-							</li>
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">IT Head</h3>
-										<span class="company">PT. Hok Tong Group Kalimantan - 2019 - 2025</span>
-									</div>
-									<div class="timeline-body">
-										<p>Manages, provides, maintains, and supports IT infrastructure across all
-											Kalimantan branches, handling troubleshooting, networking, hardware, and
-											network security to ensure seamless operations and system reliability.</p>
-									</div>
-								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">Purchasing S&C</h3>
-										<span class="company">PT. GMG Sentosa - 2017 - 2019</span>
-									</div>
-									<div class="timeline-body">
-										<p>The Purchasing S&C Head oversaw the procurement of spare parts and
-											consumables for the rubber processing plant, ensuring timely supply,
-											managing vendor relationships, optimizing costs, and maintaining inventory
-											to support seamless production operations.</p>
-									</div>
-								</div>
-							</li>
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-suitcase"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">EHS Supervisor</h3>
-										<span class="company">PT. GMG Sentosa - 2017</span>
-									</div>
-									<div class="timeline-body">
-										<p>The EHS Supervisor ensured compliance with environmental, health, and safety
-											regulations in the rubber processing plant, conducted risk assessments,
-											implemented safety programs, monitored workplace conditions, and facilitated
-											training to maintain a safe and sustainable operation.</p>
-									</div>
-								</div>
-							</li>
+          <!-- Download CTA (ink button) -->
+          <a href="javascript:void(0)"
+            class="inline-flex h-11 items-center gap-2 rounded-md bg-cream-900 px-5 text-sm font-medium text-cream-100 hover:bg-cream-800 dark:bg-white dark:text-cream-950 dark:hover:bg-white/90">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" x2="12" y1="15" y2="3" />
+            </svg>
+            <span class="hidden sm:inline">Download CV</span>
+            <span class="sm:hidden">CV</span>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- END Top Nav -->
 
-							<br>
-							<li class="timeline-heading text-center animate-box">
-								<div>
-									<h3>Education</h3>
-								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">Masters Degree</h3>
-										<span class="company">University AMIKOM Yogyakarta - 2023 - 2025</span>
-									</div>
-									<div class="timeline-body">
-										<p>Completed a Master's Degree in Computer Science with comprehensive expertise in artificial intelligence, machine learning, data science, computer vision, natural language processing, big data infrastructure, business intelligence, cyber security, soft computing, software engineering, and IT audit. Focused on applying advanced knowledge to research and practical industry-oriented solutions.</p>
-									</div>
-								</div>
-							</li>
-							<li class="animate-box timeline-unverted">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">Bachelors Degree</h3>
-										<span class="company">University Nusa Mandiri - 2021 - 2022</span>
-									</div>
-									<div class="timeline-body">
-										<p>Earned a bachelor's degree in Computer Engineering with a concentration in
-											Information Systems and obtained a certification as a Program Analyst,
-											demonstrating expertise in designing, analyzing, and implementing effective
-											software solutions.</p>
-									</div>
-								</div>
-							</li>
-							<li class="timeline-inverted animate-box">
-								<div class="timeline-badge"><i class="icon-graduation-cap"></i></div>
-								<div class="timeline-panel">
-									<div class="timeline-heading">
-										<h3 class="timeline-title">3-Year Diploma</h3>
-										<span class="company">AMIK BSI Pontianak - 2014 - 2017</span>
-									</div>
-									<div class="timeline-body">
-										<p>Completed a Diploma 3 program in Information Management, gaining foundational
-											knowledge in programming, database systems, network management, and IT
-											solutions, while developing analytical and technical skills to address
-											organizational information system needs effectively.</p>
-									</div>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+    <main class="mx-auto max-w-6xl px-5 lg:px-10">
+      <!-- Hero band -->
+      <section class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <!-- Left: identity -->
+          <div class="lg:col-span-7">
+            <span
+              class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+              <span class="size-1.5 rounded-full bg-brand-500"></span>
+              IT Professional, AI & Information System Specialist
+            </span>
+            <h1 class="mt-6 text-4xl font-normal leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-7xl">
+              Roy <span class="text-brand-500">Andika</span>
+            </h1>
+            <p class="mt-6 max-w-xl text-base/relaxed text-cream-700 dark:text-cream-500">
+              IT Infrastructure & AI Professional dengan lebih dari 8 tahun pengalaman membangun, mengelola, dan
+              mengoptimalkan sistem IT pada lingkungan manufaktur multi-site. Memiliki keahlian dalam networking, server
+              management, cloud infrastructure, software development, serta AI & Machine Learning untuk mendukung
+              digitalisasi proses bisnis, pengambilan keputusan berbasis data, dan peningkatan efisiensi operasional.
+            </p>
 
+            <!-- CTAs -->
+            <div class="mt-8 flex flex-wrap items-center gap-3">
+              <a href="#contact"
+                class="inline-flex h-10 items-center gap-2 rounded-md bg-brand-500 px-5 text-sm font-medium text-white hover:bg-brand-600">
+                Get in touch
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </a>
+              <a href="#experience"
+                class="inline-flex h-10 items-center gap-2 rounded-md border border-cream-400 bg-white px-5 text-sm font-medium text-cream-900 hover:bg-cream-50 dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:bg-white/5">
+                View experience
+              </a>
+            </div>
+            <!-- END CTAs -->
 
-		<div id="fh5co-features" class="animate-box">
-			<div class="container">
-				<div class="services-padding">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-							<h2>My Services</h2>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-embed2"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Programming</h3>
-									<p>Web Developing, Web-based Information System, CMS.</p>
-								</div>
-							</div>
-						</div>
+            <!-- Stat strip -->
+            <dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-cream-300 pt-8 dark:border-white/10">
+              <div>
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Years Exp.
+                </dt>
+                <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                  8+
+                </dd>
+              </div>
+              <div>
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Sertifikasi
+                </dt>
+                <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                  15+
+                </dd>
+              </div>
+              <div>
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  GPA S2
+                </dt>
+                <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                  3.83
+                </dd>
+              </div>
+            </dl>
+          </div>
+          <!-- END Left: identity -->
 
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-connection"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Network Engineering</h3>
-									<p>Intranet & internet access infrastructures, network security, wifi hotspot.</p>
-								</div>
-							</div>
+          <!-- Right: portrait card -->
+          <div class="lg:col-span-5">
+            <div
+              class="relative overflow-hidden rounded-xl border border-cream-300 bg-white dark:border-white/10 dark:bg-white/5">
+              <img src="assets/christian-buehner-DItYlc26zVI-unsplash.jpg" class="aspect-4/5 w-full object-cover"
+                alt="Roy Andika portrait" />
+              <!-- Caption pill overlay -->
+              <div class="absolute top-4 left-4 right-4 flex justify-between">
+                <span
+                  class="inline-flex items-center gap-1.5 rounded-full bg-white/95/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100 backdrop-blur">
+                  <span class="size-1.5 rounded-full bg-mint"></span>
+                  Online
+                </span>
+                <span
+                  class="rounded-full bg-white/95/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100 backdrop-blur">
+                  Est. 2017
+                </span>
+              </div>
+              <!-- END Caption pill overlay -->
+            </div>
+          </div>
+          <!-- END Right: portrait card -->
+        </div>
+      </section>
+      <!-- END Hero -->
 
-						</div>
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-briefcase"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>ERP & Office</h3>
-									<p>Windows OS, Linux-based OS, Microsoft Office, SAP, Odoo.</p>
-								</div>
-							</div>
-						</div>
-					</div>
+      <!-- About / Tech stack as code block -->
+      <section id="about" class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">01 ·
+              About</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Infrastruktur solid, data yang bicara.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Saya membangun dan mengelola sistem IT yang bekerja diam-diam tapi kritis —
+              mulai dari jaringan lintas pabrik hingga model prediksi berbasis AI.
+              S2 Informatika konsentrasi Business Intelligence, lulus Cum Laude.
+            </p>
+          </div>
+          <!-- END Left: about -->
 
+          <!-- Code block -->
+          <div class="min-w-0 lg:col-span-8">
+            <div
+              class="overflow-hidden rounded-xl border border-cream-300 bg-white dark:border-white/10 dark:bg-white/5">
+              <div class="flex items-center gap-2 border-b border-cream-300 px-4 py-3 dark:border-white/10">
+                <span class="size-2.5 rounded-full bg-peach"></span>
+                <span class="size-2.5 rounded-full bg-gold"></span>
+                <span class="size-2.5 rounded-full bg-mint"></span>
+                <span class="ml-3 font-mono text-xs text-cream-600 dark:text-cream-500">~/about/roy.ts</span>
+              </div>
+              <pre
+                class="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-relaxed text-cream-900 dark:text-cream-200"><span class="text-cream-600 dark:text-cream-500">// stack</span>
+<span class="text-gold">const</span> stack = {
+  infra:      [<span class="text-mint">"MikroTik"</span>, <span class="text-mint">"Docker"</span>, <span class="text-mint">"TrueNAS"</span>, <span class="text-mint">"Linux Server"</span>, <span class="text-mint">"Windows Server"</span>],
+  networking: [<span class="text-mint">"Firewall"</span>, <span class="text-mint">"VPN"</span>, <span class="text-mint">"VLAN"</span>, <span class="text-mint">"CCTV"</span>, <span class="text-mint">"Network Security"</span>],
+  cloud:      [<span class="text-mint">"Cloudflare"</span>, <span class="text-mint">"Nextcloud"</span>, <span class="text-mint">"Private Cloud"</span>, <span class="text-mint">"NAS"</span>, <span class="text-mint">"Self-Hosting"</span>],
+  dev:        [<span class="text-mint">"Python"</span>, <span class="text-mint">"Django"</span>, <span class="text-mint">"PHP/Laravel"</span>, <span class="text-mint">"CodeIgniter"</span>, <span class="text-mint">"MySQL"</span>],
+  ai_ml:      [<span class="text-mint">"Machine Learning"</span>, <span class="text-mint">"Prompt Engineering"</span>, <span class="text-mint">"Data Analytics"</span>],
+  industrial: [<span class="text-mint">"ERP Support"</span>, <span class="text-mint">"Digital Transformation"</span>, <span class="text-mint">"IT Governance"</span>]
+};</pre>
+            </div>
 
-					<div class="row">
-						<div class="col-md-4 text-center">
+            <!-- Skill timeline pills -->
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-peach/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">IT
+                Infrastructure</span>
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-mint/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Machine
+                Learning</span>
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-azure/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Prompt
+                Engineering</span>
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-lavender/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Web
+                Development</span>
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full bg-gold/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">IT
+                Governance</span>
+            </div>
+            <!-- END Skill timeline pills -->
+          </div>
+          <!-- END Code block -->
+        </div>
+      </section>
+      <!-- END About -->
 
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-cloud"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Server & Cloud</h3>
-									<p>Web & email server, NAS, Cloud Storage, Cloud Computing, RDP/VNC.</p>
-								</div>
-							</div>
+      <!-- Experience -->
+      <section id="experience" class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">02 ·
+              Experience</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Tangan yang terlatih.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Lebih dari 8 tahun memimpin infrastruktur IT multi-site,
+              pengembangan sistem, dan riset AI di sektor manufaktur dan akademik.
+            </p>
+          </div>
 
-						</div>
+          <ul class="space-y-3 lg:col-span-8">
+            <li class="rounded-xl border border-cream-300 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                  IT Head
+                </h3>
+                <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2020 - Nov 2025</span>
+              </div>
+              <p class="mt-1 text-sm font-medium text-brand-500">
+                PT. Hok Tong Cluster Kalimantan
+              </p>
+              <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                Memimpin operasional IT di enam pabrik karet dan satu kantor pusat: networking (MikroTik, VLAN, VPN),
+                server management (Proxmox, Docker, Nextcloud, OMV), CCTV, ERP support, serta IT governance dan
+                kebijakan keamanan data.
+              </p>
+            </li>
 
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-eye"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>CCTV System</h3>
-									<p>CCTV, DVR, IP Camera, Wireless Camera, Access Door, Alarm & Security.</p>
-								</div>
-							</div>
+            <li class="rounded-xl border border-cream-300 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+              <div class="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                  Purchasing of Stocks & Consumeables Head
+                </h3>
+                <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2017 - 2018</span>
+              </div>
+              <p class="mt-1 text-sm font-medium text-brand-500">
+                PT. GMG Sentosa
+              </p>
+              <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                Kabag. Pembelian Bahan Penolong. Mengelola proses pengadaan operasional perusahaan, membangun pemahaman
+                lintas-fungsi antara IT dan
+                operasi manufaktur.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- END Experience -->
 
-						</div>
-						<div class="col-md-4 text-center">
-							<div class="feature-left">
-								<span class="icon">
-									<i class="icon-stats-dots"></i>
-								</span>
-								<div class="feature-copy">
-									<h3>Machine Learning</h3>
-									<p>Business Intelligence, Artificial Intelligence (AI), Computer Vision, Data
-										Mining, Predictive Analytics.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      <!-- Education -->
+      <section class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">03 ·
+              Education</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Fondasi yang kuat.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Pendidikan formal di bidang Informatika, diperkuat dengan sertifikasi
+              profesional dan pelatihan intensif di AI, cybersecurity, dan cloud.
+            </p>
+          </div>
 
-		<div id="fh5co-skills" class="animate-box">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Skills</h2>
-					</div>
-				</div>
-				<div class="row row-pb-md">
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="95"><span><strong>HTML</strong>95%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="93"><span><strong>CSS</strong>93%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="90"><span><strong>JavaScript</strong>85%</span></div>
-					</div>
+          <ol class="divide-y divide-cream-300 lg:col-span-8 dark:divide-white/10">
+            <li class="grid grid-cols-12 gap-4 py-5 first:pt-0">
+              <div class="col-span-12 sm:col-span-3">
+                <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2023 - 2025</span>
+              </div>
+              <div class="col-span-12 sm:col-span-9">
+                <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                  Magister Informatika · S2 (M.Kom.)
+                </h3>
+                <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                  Universitas AMIKOM Yogyakarta · Yogyakarta
+                </p>
+                <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                  Mempelajari Business Intelligence, Artificial Intelligence, Data Science, Machine Learning, Big Data,
+                  Cyber Security, dan Software Engineering. Fokus penelitian pada peramalan pembelian bahan baku
+                  menggunakan model LSTM dan optimasi hyperparameter untuk mendukung pengambilan keputusan berbasis
+                  data.
+                </p>
+              </div>
+            </li>
+            <li class="grid grid-cols-12 gap-4 py-5">
+              <div class="col-span-12 sm:col-span-3">
+                <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2021 - 2022</span>
+              </div>
+              <div class="col-span-12 sm:col-span-9">
+                <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                  Sarjana Sistem Informasi · S1 (S.Kom.)
+                </h3>
+                <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                  Universitas Nusa Mandiri · Jakarta
+                </p>
+                <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                  Mempelajari analisis dan perancangan sistem informasi, pengembangan aplikasi, basis data, business
+                  intelligence, ERP, audit sistem informasi, serta manajemen proyek TI. Penelitian berfokus pada sistem
+                  pendukung keputusan menggunakan metode AHP untuk pemilihan aplikasi video conference perusahaan.
+                </p>
+              </div>
+            </li>
+            <li class="grid grid-cols-12 gap-4 py-5">
+              <div class="col-span-12 sm:col-span-3">
+                <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2014 - 2017</span>
+              </div>
+              <div class="col-span-12 sm:col-span-9">
+                <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                  Diploma Manajemen Informatika · D3 (A.Md.)
+                </h3>
+                <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                  AMIK BSI Pontianak · Pontianak
+                </p>
+                <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                  Mempelajari dasar-dasar pemrograman, basis data, jaringan komputer, sistem informasi, analisis sistem,
+                  dan pengelolaan teknologi informasi. Membentuk fondasi teknis dalam pengembangan aplikasi,
+                  administrasi sistem, pemecahan masalah TI, serta penerapan teknologi untuk kebutuhan organisasi dan
+                  bisnis.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <!-- END Education -->
 
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="89"><span><strong>PHP</strong>90%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="85"><span><strong>MySQL</strong>85%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="90"><span><strong>MongoDB</strong>80%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="85"><span><strong>Python</strong>85%</span></div>
-					</div>
-					<div class="col-md-3 col-sm-6 col-xs-12 text-center">
-						<div class="chart" data-percent="90"><span><strong>Laravel</strong>90%</span></div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6">
-						<div class="progress-wrap">
-							<h3><span class="name-left">HTML/CSS</span><span class="value-right">95%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">WordPress</span><span class="value-right">90%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-2 progress-bar-striped active" role="progressbar"
-									aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">PHP</span><span class="value-right">90%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-									aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">JavaScript</span><span class="value-right">85%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-4 progress-bar-striped active" role="progressbar"
-									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<div class="progress-wrap">
-							<h3><span class="name-left">Design</span><span class="value-right">90%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-5 progress-bar-striped active" role="progressbar"
-									aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">Codeigniter/Laravel</span><span class="value-right">78%</span>
-							</h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-striped active" role="progressbar"
-									aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:78%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">Python</span><span class="value-right">85%</span></h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-1 progress-bar-striped active" role="progressbar"
-									aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width:85%">
-								</div>
-							</div>
-						</div>
-						<div class="progress-wrap">
-							<h3><span class="name-left">MySQL/MariaDB/MongoDB</span><span class="value-right">80%</span>
-							</h3>
-							<div class="progress">
-								<div class="progress-bar progress-bar-3 progress-bar-striped active" role="progressbar"
-									aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:80%">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      <!-- Projects -->
+      <section id="projects" class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">04 ·
+              Projects</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Selected work.
+            </h2>
+          </div>
+          <a href="javascript:void(0)"
+            class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">See
+            the archive →</a>
+        </div>
 
-		<div id="fh5co-work" class="fh5co-bg-dark">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Published Works & Activities</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://news.republika.co.id/berita/qxbmcz349/lulus-2017-alumni-ubsi-ini-kini-jadi-head-it-department?"
-							rel="nofollow" target="_blank" class="work"
-							style="background-image: url(https://static.republika.co.id/uploads/images/inpicture_slide/roy-andika-atau-akrab-disapa-roy-merupakan-alumni-universitas_210804221436-154.jpg);">
-							<div class="desc">
-								<h3>Online News</h3>
-								<span>Lulus 2017, Alumni UBSI Ini Kini Jadi Head IT Department</span>
-							</div>
-						</a>
-					</div>
-					<div class="col-md-3 text-center col-padding animate-box">
-						<a href="https://news.republika.co.id/berita/r0c8h3380/seminar-tematik-menjadikan-mahasiswa-kreatif-dan-inovatif"
-							rel="nofollow" target="_blank" class="work"
-							style="background-image: url(https://static.republika.co.id/uploads/images/inpicture_slide/universitas-bina-sarana-informatika-ubsi-kampus-pontianak-sukses_211002135251-748.jpg);">
-							<div class="desc">
-								<h3>Seminar</h3>
-								<span>Seminar Tematik, Menjadikan Mahasiswa Kreatif dan Inovatif</span>
-							</div>
-						</a>
-					</div>
-					<div class="row" id="youtube-feed-container">
-					</div>
-				</div>
-			</div>
-		</div>
+        <!-- Project cards — di-render otomatis dari data/projects.js -->
+        <div id="projects-grid" class="mt-10 grid gap-4 md:grid-cols-2"></div>
 
-		<div id="fh5co-blog">
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Blog Posts</h2>
-						<p>Discover a collection of articles featuring insightful information, tutorials, and
-							downloadable files. Explore them all at <a href="https://blog.royandika.my.id"
-								target="_blank">blog.royandika.my.id</a>.
-						</p>
-					</div>
-				</div>
-				<div class="row">
+        <!-- Muat data proyek, lalu render kartu -->
+        <script src="data/projects.js"></script>
+        <script>
+          (function () {
+            // ── Ikon panah eksternal (SVG) ─────────────────────────────
+            const ARROW_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="size-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+              <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+            </svg>`;
 
-					<div id="feed-container"></div>
+            // ── Bangun satu kartu proyek ───────────────────────────────
+            function buildCard(p) {
+              const num = String(p.id).padStart(2, "0");
+              return `
+                <article class="group flex flex-col rounded-xl border border-cream-300 bg-white p-6
+                                dark:border-white/10 dark:bg-white/5">
+                  <div class="flex items-center justify-between">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-${p.tagColor}/25
+                                 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight
+                                 text-cream-900 dark:text-cream-100">
+                      ${p.tags}
+                    </span>
+                    <span class="font-mono text-xs text-cream-600 dark:text-cream-500">${num}</span>
+                  </div>
+                  <h3 class="mt-5 text-[1.375rem] font-normal leading-snug tracking-tight">
+                    ${p.title}
+                  </h3>
+                  <p class="mt-3 flex-1 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                    ${p.desc}
+                  </p>
+                  <a href="${p.linkUrl}" target="_blank" rel="noopener"
+                     class="mt-5 inline-flex items-center gap-2 font-mono text-xs text-cream-900
+                            underline decoration-cream-400 underline-offset-4
+                            hover:decoration-cream-900 dark:text-white dark:decoration-white/30
+                            dark:hover:decoration-white">
+                    ${p.linkLabel}
+                    ${ARROW_SVG}
+                  </a>
+                </article>`;
+            }
 
-				</div>
-			</div>
-		</div>
+            // ── Render semua kartu ke dalam grid ──────────────────────
+            const grid = document.getElementById("projects-grid");
+            if (typeof PROJECTS !== "undefined" && grid) {
+              grid.innerHTML = PROJECTS.map(buildCard).join("");
+            }
+          })();
+        </script>
+      </section>
 
-		<div id="fh5co-started" class="fh5co-bg-dark">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row animate-box">
-					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-						<h2>Hire Me!</h2>
-						<p>Have questions or need support? We’re just a message away! Don’t hesitate to reach out to
-							us—we’re here to help! Contact us today and let’s find the solution you need.</p>
-						<p><a href="mailto:contact@royandika.my.id" class="btn btn-default btn-lg">Contact Us</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
+      <!-- Blog Terbaru -->
+      <section id="blog" class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12">
 
-		<div id="fh5co-consult">
-			<div class="video fh5co-video" style="background-image: url(images/cover_bg_1.jpg);">
-				<div class="overlay"></div>
-			</div>
-			<div class="choose animate-box">
-				<h2>Contact</h2>
-				<form id="form">
-					<div class="row form-group">
-						<div class="col-md-12">
-							<input type="text" name="subject" id="subject" class="form-control"
-								placeholder="Your subject of this message" required>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-12">
-							<input type="text" name="from_name" id="from_name" class="form-control"
-								placeholder="Your name" required>
-						</div>
-					</div>
-					<div class="row form-group">
-						<div class="col-md-12">
-							<input type="text" name="from_email" id="from_email" class="form-control"
-								placeholder="Your email address" required>
-						</div>
-					</div>
+          <!-- Kiri: label + judul section -->
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">05 ·
+              Blog</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Catatan terbaru.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Tulisan seputar IT infrastructure, machine learning, dan hal-hal teknis
+              yang layak didokumentasikan.
+            </p>
+          </div>
 
-					<div class="row form-group">
-						<div class="col-md-12">
-							<textarea name="message" id="message" cols="30" rows="10" class="form-control"
-								placeholder="Say something about us" required="required"></textarea>
-						</div>
-					</div>
+          <!-- Kanan: kartu postingan -->
+          <div class="lg:col-span-8">
 
-					<div class="form-group">
-						<input type="submit" id="button" value="Send Message" class="btn btn-primary">
-					</div>
+            <!-- Header kanan: link ke blog.html -->
+            <div class="mb-5 flex items-center justify-end">
+              <a href="blog.html"
+                class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">Selengkapnya
+                →</a>
+            </div>
 
-				</form>
-			</div>
-		</div>
+            <!-- State: loading -->
+            <div id="blog-loading" class="flex items-center justify-center rounded-xl border border-cream-300 py-12
+                     dark:border-white/10">
+              <span class="inline-flex items-center gap-2.5 font-mono text-xs text-cream-500">
+                <svg class="size-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                </svg>
+                Memuat postingan…
+              </span>
+            </div>
 
-		<div id="map" class="fh5co-map"></div>
-	</div>
+            <!-- State: error -->
+            <div id="blog-error" class="hidden rounded-xl border border-cream-300 p-6 text-center
+                     dark:border-white/10">
+              <p class="font-mono text-xs text-cream-500" id="blog-error-msg">
+                Gagal memuat postingan.
+              </p>
+              <button onclick="loadLatestPosts()" class="mt-3 inline-flex h-8 items-center rounded-md border border-cream-300 px-3
+                       text-xs hover:bg-cream-50 dark:border-white/10 dark:hover:bg-white/5">
+                Coba lagi
+              </button>
+            </div>
 
-	<div id="fh5co-footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p>&copy; 2022 -
-						<script type="text/javascript">document.write(new Date().getFullYear());</script> Roy Andika.
-						All Rights Reserved.
-				</div>
-			</div>
-		</div>
-	</div>
+            <!-- Kartu-kartu postingan (stacked vertikal) -->
+            <div id="blog-cards" class="hidden overflow-hidden rounded-xl border border-cream-300 dark:border-white/10">
+            </div>
 
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
+          </div>
+        </div>
+      </section>
+      <!-- END Blog Terbaru -->
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<!-- <script src="js/bootstrap.min.js"></script>-->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
-		integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-		crossorigin="anonymous"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
+      <!-- Activity Terbaru -->
+      <section id="activity" class="border-b border-cream-300 py-20 dark:border-white/10">
+        <div class="grid gap-12 lg:grid-cols-12">
 
-	<!-- Main -->
-	<script src="js/main.js"></script>
-	<script src="js/rss-feed-parser.js"></script>
-	<script src="js/youtube-rss-feed-parser.js"></script>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-	<script type="text/javascript">
-		emailjs.init('hOisMb_15Enuo6Qxx')
-	</script>
-	<script>
-		const btn = document.getElementById('button');
+          <!-- Kiri: label + judul section -->
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">06 ·
+              Activity</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Kegiatan terkini.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Seminar, training, uji kompetensi, dan aktivitas pengembangan
+              profesional yang terus dijalani.
+            </p>
+          </div>
 
-		document.getElementById('form')
-			.addEventListener('submit', function (event) {
-				event.preventDefault();
+          <!-- Kanan: list aktivitas -->
+          <div class="lg:col-span-8">
 
-				btn.value = 'Sending...';
+            <!-- Header kanan: link ke activities.html -->
+            <div class="mb-5 flex items-center justify-end">
+              <a href="activities.html"
+                class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">Selengkapnya
+                →</a>
+            </div>
 
-				const serviceID = 'default_service';
-				const templateID = 'template_mwg7ios';
+            <!-- List aktivitas — diisi oleh activities.js -->
+            <div id="activity-list" class="overflow-hidden rounded-xl border border-cream-300 dark:border-white/10">
+            </div>
 
-				emailjs.sendForm(serviceID, templateID, this)
-					.then(() => {
-						btn.value = 'Send Email';
-						alert('Sent!');
-					}, (err) => {
-						btn.value = 'Send Email';
-						alert(JSON.stringify(err));
-					});
-			});
-	</script>
-	<script>
-		var map = L.map('map').setView([-0.026778561691504627, 109.34234462743588], 15);
-		L.tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=Bqy7L9sg4gGwSIcg5CI2', {
-			attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>'
-		}).addTo(map);
-	</script>
+          </div>
+        </div>
+      </section>
+      <!-- END Activity Terbaru -->
+
+      <!-- Contact / Social -->
+      <section id="contact" class="py-20">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-4">
+            <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">07 ·
+              Contact</span>
+            <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+              Mari berkolaborasi.
+            </h2>
+            <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Terbuka untuk peluang baru di bidang IT infrastructure, AI engineering,
+              atau peran teknis strategis. Biasanya merespons dalam 1 hari kerja.
+            </p>
+            <a href="mailto:royandika.mkom@gmail.com"
+              class="mt-6 inline-flex h-10 items-center gap-2 rounded-md bg-brand-500 px-5 text-sm font-medium text-white hover:bg-brand-600">
+              royandika.mkom@gmail.com
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          <!-- END Left: contact intro -->
+
+          <!-- Contact details list -->
+          <div class="lg:col-span-8">
+            <dl
+              class="grid grid-cols-1 divide-y divide-cream-300 rounded-xl border border-cream-300 bg-white sm:grid-cols-2 sm:divide-y-0 sm:divide-x dark:divide-white/10 dark:border-white/10 dark:bg-white/5">
+              <div class="p-6">
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Location
+                </dt>
+                <dd class="mt-2 font-medium">Pontianak, Indonesia</dd>
+              </div>
+              <div class="p-6">
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Perusahaan
+                </dt>
+                <dd class="mt-2 font-mono text-sm">PT. Iwira Media Solusi</dd>
+              </div>
+              <div class="border-t border-cream-300 p-6 dark:border-white/10">
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Website
+                </dt>
+                <dd class="mt-2">
+                  <a href="https://royandika.my.id"
+                    class="font-mono text-sm text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">royandika.my.id</a>
+                </dd>
+              </div>
+              <div class="border-t border-cream-300 p-6 dark:border-white/10">
+                <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                  Email
+                </dt>
+                <dd class="mt-2">
+                  <a href="mailto:royandika.mkom@gmail.com"
+                    class="font-mono text-sm text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">royandika.mkom@gmail.com</a>
+                </dd>
+              </div>
+            </dl>
+            <!-- END Contact details list -->
+
+            <!-- Social links -->
+            <ul class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <li>
+                <a href="https://linkedin.com/in/royandika" target="_blank"
+                  class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                  <div>
+                    <span
+                      class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">LinkedIn</span>
+                    <p class="mt-1 text-sm font-medium">Profil Profesional</p>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                    class="size-4 text-cream-600 dark:text-cream-500">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/royandika" target="_blank"
+                  class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                  <div>
+                    <span
+                      class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">GitHub</span>
+                    <p class="mt-1 text-sm font-medium">Repositori Kode</p>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                    class="size-4 text-cream-600 dark:text-cream-500">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="https://blog.royandika.my.id" target="_blank"
+                  class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                  <div>
+                    <span
+                      class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Personal
+                      Blog</span>
+                    <p class="mt-1 text-sm font-medium">blog.royandika.my.id</p>
+                  </div>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                    class="size-4 text-cream-600 dark:text-cream-500">
+                    <path d="M7 7h10v10" />
+                    <path d="M7 17 17 7" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- END Social links -->
+        </div>
+      </section>
+      <!-- END Contact / Social -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cream-300 dark:border-white/10">
+      <div
+        class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-sm text-cream-700 sm:flex-row sm:items-center lg:px-10 dark:text-cream-500">
+        <p>
+          CV &copy;
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          · Roy Andika, M.Kom.
+        </p>
+        <p class="inline-flex items-center gap-1.5">
+          <span>Crafted with</span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+            class="inline-block size-4 text-brand-500">
+            <path
+              d="m9.653 16.915-.005-.003-.019-.01a20.759 20.759 0 0 1-1.162-.682 22.045 22.045 0 0 1-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 0 1 8-2.828A4.5 4.5 0 0 1 18 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 0 1-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 0 1-.69.001l-.002-.001Z" />
+          </svg>
+          <span>by
+            <a href="https://pixelcave.com"
+              class="font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">pixelcave</a></span>
+        </p>
+      </div>
+    </footer>
+    <!-- END Footer -->
+  </div>
+  <!-- END Page Container -->
+
+  <!-- ════════════════════════════════════════════════════════
+       ACTIVITY PREVIEW — 3 terbaru dari data/activities.js
+  ════════════════════════════════════════════════════════ -->
+  <script src="data/activities.js"></script>
+  <script>
+    (function () {
+      if (typeof ACTIVITIES === "undefined") return;
+
+      // Warna & ikon per tipe kegiatan
+      const TYPE_META = {
+        seminar: { color: "azure", label: "Seminar" },
+        training: { color: "mint", label: "Training" },
+        kompetensi: { color: "gold", label: "Kompetensi" },
+        workshop: { color: "lavender", label: "Workshop" },
+        webinar: { color: "peach", label: "Webinar" },
+      };
+      function typeMeta(type) {
+        return TYPE_META[type?.toLowerCase()] || { color: "azure", label: type || "Lainnya" };
+      }
+
+      const ARROW = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="size-3 shrink-0">
+        <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+      </svg>`;
+
+      function renderRow(a, isLast) {
+        const { color, label } = typeMeta(a.type);
+        const border = isLast ? "" : "border-b border-cream-300 dark:border-white/10";
+        const credLink = a.credential_url && a.credential_url !== "#"
+          ? `<a href="${a.credential_url}" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-1 font-mono text-[10px] text-brand-500
+                      hover:text-brand-600 transition-colors">
+               Lihat Credential ${ARROW}
+             </a>`
+          : "";
+
+        return `
+          <div class="group ${border} p-5 hover:bg-cream-50 dark:hover:bg-white/4 transition-colors duration-150">
+            <div class="flex flex-wrap items-start justify-between gap-3">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="rounded-full bg-${color}/25 px-2.5 py-0.5 text-[10px] font-semibold
+                             uppercase tracking-tight text-cream-900 dark:text-cream-100">
+                  ${label}
+                </span>
+                <span class="font-mono text-[10px] text-cream-400 dark:text-cream-600">
+                  ${a.date}${a.location ? " · " + a.location : ""}
+                </span>
+              </div>
+              ${credLink}
+            </div>
+            <h3 class="mt-2.5 text-[0.9375rem] font-medium leading-snug tracking-tight">
+              ${a.name}
+            </h3>
+            <p class="mt-1 text-[11px] font-medium text-cream-500 dark:text-cream-600">
+              ${a.organizer}
+            </p>
+            <p class="mt-2 text-sm/relaxed text-cream-600 dark:text-cream-500 line-clamp-2">
+              ${a.description}
+            </p>
+          </div>`;
+      }
+
+      const list = document.getElementById("activity-list");
+      if (!list) return;
+
+      // Ambil 3 terbaru (urutan terakhir di array = terbaru)
+      const recent = [...ACTIVITIES].slice(-3).reverse();
+      list.innerHTML = recent.map((a, i) => renderRow(a, i === recent.length - 1)).join("");
+    })();
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════
+       BLOG PREVIEW ENGINE — 4 postingan terbaru dari Blogger
+  ════════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      // ── Konfigurasi — sesuaikan URL blog ─────────────────
+      const BLOG_URL = "https://blog.royandika.my.id";
+      const MAX_POSTS = 3;
+      const SUMMARY_LEN = 120;
+      // ─────────────────────────────────────────────────────
+
+      const elLoading = document.getElementById("blog-loading");
+      const elError = document.getElementById("blog-error");
+      const elCards = document.getElementById("blog-cards");
+
+      // Helpers
+      function fmtDate(iso) {
+        return new Date(iso).toLocaleDateString("id-ID", {
+          day: "numeric", month: "long", year: "numeric"
+        });
+      }
+      function stripHtml(html) {
+        const d = document.createElement("div");
+        d.innerHTML = html;
+        return d.textContent || d.innerText || "";
+      }
+      function getThumb(entry) {
+        const m = entry["media$thumbnail"];
+        if (m?.url) return m.url.replace(/\/s\d+\//, "/s320/");
+        const match = (entry.content?.$t || "").match(/<img[^>]+src=["']([^"']+)["']/i);
+        return match ? match[1] : null;
+      }
+      function getUrl(entry) {
+        return (entry.link || []).find(l => l.rel === "alternate")?.href || "#";
+      }
+
+      // Render satu kartu postingan
+      function renderCard(entry, isLast) {
+        const title = entry.title?.$t || "(tanpa judul)";
+        const date = fmtDate(entry.published?.$t || "");
+        const url = getUrl(entry);
+        const thumb = getThumb(entry);
+        const rawText = entry.summary?.$t
+          ? stripHtml(entry.summary.$t)
+          : stripHtml(entry.content?.$t || "");
+        const summary = rawText.trim().slice(0, SUMMARY_LEN) + "…";
+        const border = isLast ? "" : "border-b border-cream-300 dark:border-white/10";
+
+        const thumbHtml = thumb
+          ? `<div class="relative w-24 sm:w-28 shrink-0 overflow-hidden">
+               <img src="${thumb}" alt="${title}"
+                    class="h-full w-full object-cover transition-transform duration-300
+                           group-hover:scale-105"
+                    loading="lazy" onerror="this.closest('div').remove()" />
+             </div>`
+          : "";
+
+        return `
+          <article class="group ${border} flex min-h-[6rem] hover:bg-cream-50 dark:hover:bg-white/4
+                           transition-colors duration-150">
+            ${thumbHtml}
+            <a href="${url}" target="_blank" rel="noopener"
+               class="flex flex-1 flex-col justify-between gap-1 p-4 sm:p-5">
+              <div>
+                <p class="font-mono text-[10px] text-cream-400 dark:text-cream-600">${date}</p>
+                <h3 class="mt-1 text-[0.9375rem] font-medium leading-snug tracking-tight
+                           line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400
+                           transition-colors duration-150">
+                  ${title}
+                </h3>
+                <p class="mt-1.5 text-sm/relaxed text-cream-600 dark:text-cream-500 line-clamp-2">
+                  ${summary}
+                </p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 font-mono text-xs
+                           text-brand-500 opacity-0 group-hover:opacity-100
+                           transition-opacity duration-150">
+                Baca selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" class="size-3">
+                  <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </article>`;
+      }
+
+      // ── JSONP loader (native Blogger, tanpa CORS proxy) ─────
+      function showError(msg) {
+        elLoading.classList.add("hidden");
+        document.getElementById("blog-error-msg").textContent = "Gagal memuat: " + msg;
+        elError.classList.remove("hidden");
+      }
+
+      window.loadLatestPosts = function () {
+        elLoading.classList.remove("hidden");
+        elError.classList.add("hidden");
+        elCards.classList.add("hidden");
+
+        // Nama callback unik agar tidak bentrok jika dipanggil ulang
+        const cbName = "_blogCb_" + Date.now();
+
+        // Timeout fallback 10 detik
+        const timer = setTimeout(() => {
+          cleanup();
+          showError("Waktu habis. Periksa koneksi internet.");
+        }, 10000);
+
+        function cleanup() {
+          clearTimeout(timer);
+          delete window[cbName];
+          const old = document.getElementById("_blogJsonp");
+          if (old) old.remove();
+        }
+
+        // Callback yang dipanggil oleh Blogger
+        window[cbName] = function (data) {
+          cleanup();
+          const entries = (data.feed?.entry || []).slice(0, MAX_POSTS);
+          if (!entries.length) { showError("Belum ada postingan."); return; }
+
+          elCards.innerHTML = entries
+            .map((e, i) => renderCard(e, i === entries.length - 1))
+            .join("");
+
+          elLoading.classList.add("hidden");
+          elCards.classList.remove("hidden");
+        };
+
+        // Injeksi script JSONP
+        const s = document.createElement("script");
+        s.id = "_blogJsonp";
+        s.src = `${BLOG_URL}/feeds/posts/default` +
+          `?alt=json-in-script&callback=${cbName}&max-results=${MAX_POSTS}&orderby=published`;
+        s.onerror = () => { cleanup(); showError("Gagal memuat feed blog."); };
+        document.head.appendChild(s);
+      };
+
+      loadLatestPosts();
+    })();
+  </script>
+
 </body>
 
 </html>
