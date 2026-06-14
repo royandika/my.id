@@ -112,6 +112,10 @@
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Experience</a>
             <a href="#projects"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Projects</a>
+            <a href="#blog"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Blog</a>
+            <a href="#activities"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Activities</a>
             <a href="#contact"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Contact</a>
           </nav>
@@ -627,7 +631,7 @@
             </p>
             <a href="mailto:royandika.mkom@gmail.com"
               class="mt-6 inline-flex h-10 items-center gap-2 rounded-md bg-brand-500 px-5 text-sm font-medium text-white hover:bg-brand-600">
-              royandika.mkom@gmail.com
+              Hubungi saya
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
                 <path d="M5 12h14" />
@@ -966,7 +970,7 @@
         // Injeksi script JSONP
         const s = document.createElement("script");
         s.id = "_blogJsonp";
-        s.src = `${BLOG_URL}/feeds/posts/default` +
+        s.src = `${BLOG_URL}/feeds/posts/default/-/Indonesia` +
           `?alt=json-in-script&callback=${cbName}&max-results=${MAX_POSTS}&orderby=published`;
         s.onerror = () => { cleanup(); showError("Gagal memuat feed blog."); };
         document.head.appendChild(s);

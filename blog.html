@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="id">
+<html lang="id" class="dark">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Blog — Roy Andika, S.Kom., M.Kom.</title>
-  <meta name="description" content="Tulisan dan artikel seputar IT Infrastructure, Machine Learning, dan teknologi." />
+  <title>Blog — Roy Andika, M.Kom.</title>
+  <meta name="description" content="Catatan seputar IT Infrastructure, Machine Learning, dan teknologi." />
   <meta name="author" content="Roy Andika" />
 
   <!-- Icons -->
@@ -68,7 +68,7 @@
 
 <body>
   <div x-data="{
-        darkMode: false,
+        darkMode: true,
         toggleDarkMode() {
           this.darkMode = !this.darkMode;
           document.body.parentNode.classList.toggle('dark', this.darkMode);
@@ -78,19 +78,21 @@
     <!-- TOP NAV -->
     <header class="border-b border-cream-300 dark:border-white/10">
       <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-10">
-        <a href="index.html" class="inline-flex items-baseline gap-1 font-medium tracking-tight">
-          roy.andika
+        <a href="https://www.royandika.my.id" class="inline-flex items-baseline gap-1 font-medium tracking-tight">
+          royandika.my.id
         </a>
         <div class="flex items-center gap-2 sm:gap-5">
           <nav class="hidden items-center gap-6 md:flex">
-            <a href="index.html#about"
+            <a href="#about"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">About</a>
-            <a href="index.html#experience"
+            <a href="#experience"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Experience</a>
-            <a href="index.html#projects"
+            <a href="#projects"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Projects</a>
             <a href="blog.html" class="text-sm font-medium text-cream-900 dark:text-white">Blog</a>
-            <a href="index.html#contact"
+            <a href="#activities"
+              class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Activities</a>
+            <a href="#contact"
               class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white">Contact</a>
           </nav>
           <button x-on:click="toggleDarkMode()" type="button"
@@ -115,7 +117,7 @@
               <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
             </svg>
           </button>
-          <a href="javascript:void(0)"
+          <a href="https://drive.google.com/file/d/11JfHK7vPqR825hJrnKMGR04B7UBXD14k/view?usp=sharing"
             class="inline-flex h-11 items-center gap-2 rounded-md bg-cream-900 px-5 text-sm font-medium text-cream-100 hover:bg-cream-800 dark:bg-white dark:text-cream-950 dark:hover:bg-white/90">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
@@ -138,14 +140,14 @@
         <span
           class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
           <span class="size-1.5 rounded-full bg-brand-500"></span>
-          Blog &amp; Tulisan
+          Blog
         </span>
         <h1 class="mt-4 text-4xl font-normal leading-tight tracking-[-0.02em] md:text-5xl">
-          Catatan teknis<span class="text-brand-500">.</span>
+          Catatan<span class="text-brand-500">.</span>
         </h1>
         <p class="mt-4 max-w-xl text-sm/relaxed text-cream-700 dark:text-cream-500">
-          Tulisan seputar IT infrastructure, machine learning, produktivitas dengan AI,
-          dan hal-hal teknis yang layak didokumentasikan.
+          Artikel, tutorial, opini dan berbagai hal mengenai IT, machine learning, AI,
+          dan hal-hal teknis maupun umum yang layak dibagikan.
         </p>
       </section>
 
@@ -248,7 +250,7 @@
       <div
         class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-5 py-8 text-sm text-cream-700 sm:flex-row sm:items-center lg:px-10 dark:text-cream-500">
         <p>CV &copy;
-          <script>document.write(new Date().getFullYear());</script> · Roy Andika, S.Kom., M.Kom.
+          <script>document.write(new Date().getFullYear());</script> · Roy Andika, M.Kom.
         </p>
         <p class="inline-flex items-center gap-1.5">
           <span>Crafted with</span>
@@ -570,7 +572,7 @@
 
       const s = document.createElement("script");
       s.id = "_blogFeedJsonp";
-      s.src = `${CONFIG.blogUrl}/feeds/posts/default` +
+      s.src = `${CONFIG.blogUrl}/feeds/posts/default/-/Indonesia` +
         `?alt=json-in-script&callback=${cbName}&max-results=${CONFIG.maxFetch}&orderby=published`;
       s.onerror = () => { cleanup(); showFetchError("Gagal memuat feed blog. Pastikan URL blog benar dan publik."); };
       document.head.appendChild(s);
