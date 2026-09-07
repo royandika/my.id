@@ -26,7 +26,7 @@ const PROJECTS = [
     title: "Optimasi Hiperparameter LSTM untuk Prediksi Pengadaan Bahan Baku Karet Alam",
     desc: "Membandingkan tiga arsitektur LSTM (LSTM, Bi-LSTM, Stacked LSTM) dengan tiga metode optimasi hiperparameter — Bayesian Optimization, Hyperband, dan Optuna — untuk forecasting kebutuhan bahan baku di industri karet alam.",
     linkLabel: "Jurnal Ilmu Pertanian Indonesia (JIPI) · 2025",
-    linkUrl: "#",
+    linkUrl: "https://jurnal.stkippgritulungagung.ac.id/index.php/jipi/article/view/7567/0",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const PROJECTS = [
     title: "Pemilihan Platform Video Conference Menggunakan Metode AHP di PT. Hok Tong",
     desc: "Penelitian Decision Support System berbasis Analytical Hierarchy Process (AHP) untuk mengevaluasi dan memilih platform video conferencing terbaik sesuai kebutuhan operasional perusahaan manufaktur karet.",
     linkLabel: "Jurnal Bina Manajemen dan Informatika (JBMI) · 2022",
-    linkUrl: "#",
+    linkUrl: "https://journal.unhas.ac.id/index.php/jbmi/article/view/23216",
   },
 
   // ── PROYEK IT INFRASTRUCTURE ─────────────────────────────────────────────
