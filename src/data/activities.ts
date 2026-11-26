@@ -1,25 +1,16 @@
-/**
- * activities.js — Data Kegiatan & Aktivitas Roy Andika, S.Kom., M.Kom.
- * ================================================================
- * Untuk menambah / edit / hapus entri, cukup ubah array ACTIVITIES.
- * Tidak perlu menyentuh index.html maupun activities.html.
- * ================================================================
- *
- * Properti tiap objek:
- *   id             {number}  - Nomor urut
- *   name           {string}  - Nama kegiatan / sertifikasi / seminar
- *   type           {string}  - Jenis kegiatan: seminar | training | kompetensi | workshop | webinar | lainnya
- *   organizer      {string}  - Penyelenggara
- *   date           {string}  - Tanggal (format: "DD Month YYYY" atau "Month YYYY")
- *   location       {string}  - Tempat pelaksanaan (kota / online)
- *   description    {string}  - Deskripsi singkat kegiatan
- *   credential_url {string}  - URL sertifikat / credential (atau "#" jika tidak ada)
- */
+export interface Activity {
+  id: number;
+  name: string;
+  type: "kompetensi" | "training" | "seminar" | "workshop" | "webinar" | string;
+  organizer: string;
+  date: string;
+  location: string;
+  description: string;
+  credential_url: string;
+}
 
-const ACTIVITIES = [
-
+export const ACTIVITIES: Activity[] = [
   // ── KOMPETENSI / SERTIFIKASI ──────────────────────────────────────
-
   {
     id: 1,
     name: "Sertifikasi Kompetensi Program Analyst",
@@ -42,7 +33,6 @@ const ACTIVITIES = [
   },
 
   // ── TRAINING ──────────────────────────────────────────────────────
-
   {
     id: 3,
     name: "IT Essentials — Cisco Networking Academy",
@@ -145,7 +135,6 @@ const ACTIVITIES = [
   },
 
   // ── SEMINAR / WEBINAR ─────────────────────────────────────────────
-
   {
     id: 13,
     name: "Seminar Nasional Teknologi Informasi dan Komunikasi",
@@ -156,16 +145,4 @@ const ACTIVITIES = [
     description: "Seminar nasional dengan topik perkembangan teknologi informasi terkini, kecerdasan buatan, dan transformasi digital di sektor industri. Diikuti sebagai peserta dan presenter riset.",
     credential_url: "#",
   },
-
-  // ── Tambahkan entri baru di bawah ini ────────────────────────────
-  // {
-  //   id: 14,
-  //   name: "Nama Kegiatan",
-  //   type: "workshop",
-  //   organizer: "Penyelenggara",
-  //   date: "Juni 2026",
-  //   location: "Kota / Online",
-  //   description: "Deskripsi singkat kegiatan...",
-  //   credential_url: "#",
-  // },
 ];

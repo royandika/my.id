@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { PROJECTS } from '../data/projects';
+---
+
+<Layout
+  title="Project Archive — Roy Andika, M.Kom."
+  description="Daftar lengkap project dan publikasi Roy Andika yang ditampilkan di halaman utama."
+  activePage="projects"
+>
+  <main class="mx-auto max-w-6xl px-5 py-10 lg:px-10 lg:py-12">
+    <section class="border-b border-cream-300 pb-10 dark:border-white/10">
+      <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+        04 · Project Archive
+      </span>
+      <h1 class="mt-4 text-4xl font-normal leading-tight tracking-[-0.02em] md:text-5xl">
+        Project & Publikasi<span class="text-brand-500">.</span>
+      </h1>
+      <p class="mt-4 max-w-3xl text-sm/relaxed text-cream-700 dark:text-cream-500">
+        Daftar project dan publikasi yang lebih lengkap untuk referensi.
+      </p>
+    </section>
+
+    <section class="py-8">
+      <div id="projects-grid" class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {PROJECTS.map(project => <ProjectCard project={project} />)}
+      </div>
+    </section>
+  </main>
+</Layout>

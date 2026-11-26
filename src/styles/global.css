@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+/* Class based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Theme configuration */
+@theme {
+  /* Fonts */
+  --default-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Cream */
+  --color-cream-50: oklch(0.983 0.003 89);
+  --color-cream-100: oklch(0.974 0.004 89);
+  --color-cream-200: oklch(0.948 0.006 90);
+  --color-cream-300: oklch(0.918 0.005 90);
+  --color-cream-400: oklch(0.835 0.008 89);
+  --color-cream-500: oklch(0.677 0.009 89);
+  --color-cream-600: oklch(0.553 0.010 89);
+  --color-cream-700: oklch(0.408 0.007 89);
+  --color-cream-800: oklch(0.288 0.008 89);
+  --color-cream-900: oklch(0.205 0.007 89);
+  --color-cream-950: oklch(0.155 0.005 89);
+
+  /* Brand */
+  --color-brand-50: oklch(0.971 0.014 55);
+  --color-brand-100: oklch(0.929 0.038 60);
+  --color-brand-200: oklch(0.864 0.083 55);
+  --color-brand-300: oklch(0.789 0.142 51);
+  --color-brand-400: oklch(0.704 0.187 43);
+  --color-brand-500: oklch(0.636 0.225 36);
+  --color-brand-600: oklch(0.563 0.193 36);
+  --color-brand-700: oklch(0.470 0.158 38);
+  --color-brand-800: oklch(0.372 0.124 39);
+  --color-brand-900: oklch(0.281 0.092 39);
+  --color-brand-950: oklch(0.183 0.061 41);
+
+  /* Timeline pastels */
+  --color-peach: oklch(0.769 0.064 41);
+  --color-mint: oklch(0.786 0.063 144);
+  --color-azure: oklch(0.766 0.062 246);
+  --color-lavender: oklch(0.738 0.072 297);
+  --color-gold: oklch(0.633 0.111 65);
+}

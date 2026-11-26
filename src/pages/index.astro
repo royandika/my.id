@@ -1,0 +1,696 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { PROJECTS } from '../data/projects';
+import { ACTIVITIES } from '../data/activities';
+
+const latestProjects = PROJECTS.slice(0, 4);
+const recentActivities = [...ACTIVITIES].slice(-3).reverse();
+
+const typeMetaMap: Record<string, { label: string; badgeClass: string }> = {
+  seminar: { label: "Seminar", badgeClass: "bg-azure/25 text-cream-900 dark:text-cream-100" },
+  training: { label: "Training", badgeClass: "bg-mint/25 text-cream-900 dark:text-cream-100" },
+  kompetensi: { label: "Kompetensi", badgeClass: "bg-gold/25 text-cream-900 dark:text-cream-100" },
+  workshop: { label: "Workshop", badgeClass: "bg-lavender/25 text-cream-900 dark:text-cream-100" },
+  webinar: { label: "Webinar", badgeClass: "bg-peach/25 text-cream-900 dark:text-cream-100" },
+};
+
+function getMeta(type: string) {
+  return typeMetaMap[type.toLowerCase()] || { label: type || "Lainnya", badgeClass: "bg-azure/25 text-cream-900 dark:text-cream-100" };
+}
+---
+
+<Layout
+  title="Roy Andika, M.Kom. — Dosen, Praktisi & Peneliti IT"
+  description="Portfolio & CV online Roy Andika — IT Professional, AI & Information System Specialist. Berbasis di Pontianak, Kalimantan Barat, Indonesia."
+  activePage="home"
+>
+  <main class="mx-auto max-w-6xl px-5 lg:px-10">
+    <!-- Hero band -->
+    <section class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+        <!-- Left: identity -->
+        <div class="lg:col-span-7">
+          <span
+            class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500"
+          >
+            <span class="size-1.5 rounded-full bg-brand-500"></span>
+            Dosen, Praktisi & Peneliti IT
+          </span>
+          <h1 class="mt-6 text-4xl font-normal leading-[1.05] tracking-[-0.03em] sm:text-5xl md:text-6xl lg:text-7xl">
+            Roy <span class="text-brand-500">Andika</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-base/relaxed text-cream-700 dark:text-cream-500">
+            Dosen Sistem dan Teknologi Informasi dengan pengalaman profesional di bidang IT infrastructure, networking, server management, software development, data analytics, dan AI. Memiliki pengalaman memimpin operasional IT di lingkungan manufaktur serta mengembangkan kompetensi akademik melalui pengajaran, riset, dan pengembangan solusi teknologi berbasis data.
+          </p>
+
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href="#contact"
+              class="inline-flex h-10 items-center gap-2 rounded-md bg-brand-500 px-5 text-sm font-medium text-white hover:bg-brand-600"
+            >
+              Get in touch
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+            <a
+              href="#experience"
+              class="inline-flex h-10 items-center gap-2 rounded-md border border-cream-400 bg-white px-5 text-sm font-medium text-cream-900 hover:bg-cream-50 dark:border-white/15 dark:bg-transparent dark:text-white dark:hover:bg-white/5"
+            >
+              View experience
+            </a>
+          </div>
+          <!-- END CTAs -->
+
+          <!-- Stat strip -->
+          <dl class="mt-12 grid max-w-lg grid-cols-3 gap-6 border-t border-cream-300 pt-8 dark:border-white/10">
+            <div>
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                Years Exp.
+              </dt>
+              <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                8+
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                Sertifikasi
+              </dt>
+              <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                15+
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+                GPA S2
+              </dt>
+              <dd class="mt-1 text-[1.625rem] font-normal leading-tight tracking-tight">
+                3.83
+              </dd>
+            </div>
+          </dl>
+        </div>
+        <!-- END Left: identity -->
+
+        <!-- Right: portrait card -->
+        <div class="lg:col-span-5">
+          <div class="relative overflow-hidden rounded-xl border border-cream-300 bg-white dark:border-white/10 dark:bg-white/5">
+            <img src="/assets/img/roy-andika.jpg" class="aspect-4/5 w-full object-cover" alt="Roy Andika portrait" />
+            <!-- Caption pill overlay -->
+            <div class="absolute top-4 left-4 right-4 flex justify-between">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:bg-white/20 dark:text-cream-100 backdrop-blur">
+                <span class="size-1.5 rounded-full bg-mint"></span>
+                Online
+              </span>
+              <span class="rounded-full bg-white/95 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:bg-white/20 dark:text-cream-100 backdrop-blur">
+                Est. 2017
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- END Right: portrait card -->
+      </div>
+    </section>
+    <!-- END Hero -->
+
+    <!-- About / Tech stack as code block -->
+    <section id="about" class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">01 · About</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+            Menjembatani Teknologi, Data, dan Kebutuhan Organisasi.
+          </h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Saya membangun dan mengelola sistem IT yang bekerja diam-diam tapi kritis —
+            mulai dari jaringan lintas pabrik hingga model prediksi berbasis AI.
+            S2 Informatika konsentrasi Business Intelligence, lulus Cum Laude.
+          </p>
+          <div class="mt-5">
+            <script is:inline async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7871062608972422" crossorigin="anonymous"></script>
+            <!-- Responsive_horizontal_RoyAndika.my.id -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7871062608972422" data-ad-slot="5023854427" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script is:inline>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+        <!-- END Left: about -->
+
+        <!-- Code block -->
+        <div class="min-w-0 lg:col-span-8">
+          <div class="overflow-hidden rounded-xl border border-cream-300 bg-white dark:border-white/10 dark:bg-white/5">
+            <div class="flex items-center gap-2 border-b border-cream-300 px-4 py-3 dark:border-white/10">
+              <span class="size-2.5 rounded-full bg-peach"></span>
+              <span class="size-2.5 rounded-full bg-gold"></span>
+              <span class="size-2.5 rounded-full bg-mint"></span>
+              <span class="ml-3 font-mono text-xs text-cream-600 dark:text-cream-500">~/about/royandika.ts</span>
+            </div>
+            <pre class="overflow-x-auto px-5 py-5 font-mono text-[13px] leading-relaxed text-cream-900 dark:text-cream-200"><span class="text-cream-600 dark:text-cream-500">// stack</span>
+<span class="text-gold">const</span> stack = &#123;
+  infra:      [<span class="text-lavender">"IT Essentials"</span>, <span class="text-azure">"Networking"</span>, <span class="text-mint">"Server"</span>, <span class="text-peach">"Virtual/Cloud Computing"</span>],
+  networking: [<span class="text-gold">"Firewall"</span>, <span class="text-lavender">"VPN"</span>, <span class="text-azure">"VLAN"</span>, <span class="text-mint">"DNS"</span>, <span class="text-peach">"Network Security"</span>],
+  cloud:      [<span class="text-peach">"Nextcloud"</span>, <span class="text-gold">"TrueNAS"</span>, <span class="text-lavender">"Web & Email Hosting"</span>, <span class="text-azure">"OpenMediaVault"</span>],
+  dev:        [<span class="text-mint">"Python"</span>, <span class="text-peach">"Django"</span>, <span class="text-gold">"PHP"</span>, <span class="text-lavender">"CodeIgniter/Laravel"</span>, <span class="text-azure">"MySQL"</span>],
+  ai_ml:      [<span class="text-azure">"Machine Learning"</span>, <span class="text-mint">"Prompt Engineering"</span>, <span class="text-peach">"Data Analytics"</span>],
+  industrial: [<span class="text-lavender">"ERP Support"</span>, <span class="text-azure">"SAP"</span>, <span class="text-mint">"Digital Transformation"</span>, <span class="text-peach">"IT Governance"</span>]
+&#125;;</pre>
+          </div>
+
+          <!-- Skill timeline pills -->
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-peach/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">IT Infrastructure</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-mint/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Networking</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-azure/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Cloud Computing</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-lavender/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">Web Development</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-gold/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">AI & Machine Learning</span>
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-peach/25 px-2.5 py-1 text-xs font-semibold uppercase tracking-tight text-cream-900 dark:text-cream-100">IT Governance</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END About -->
+
+    <!-- Experience -->
+    <section id="experience" class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">02 · Experience</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+            Tangan yang terlatih.
+          </h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Pengajar, peneliti dan praktisi berpengalaman lebih dari 8 tahun memimpin infrastruktur IT multi-site,
+            pengembangan sistem, dan riset AI di sektor manufaktur dan akademik.
+          </p>
+        </div>
+
+        <ul class="space-y-3 lg:col-span-8">
+          <li class="rounded-xl border border-cream-300 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">Dosen</h3>
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">Sept 2026 - Now</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-500">Universitas OSO</p>
+            <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Melaksanakan Tri Dharma Perguruan Tinggi melalui kegiatan pendidikan dan pengajaran pada bidang Sistem dan Teknologi Informasi, penelitian, serta pengabdian kepada masyarakat. Mengembangkan pembelajaran berbasis praktik dan teknologi, membimbing mahasiswa, melakukan penelitian terapan, serta mendukung pengembangan kompetensi dan transformasi digital di lingkungan akademik.
+            </p>
+          </li>
+
+          <li class="rounded-xl border border-cream-300 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">IT Head</h3>
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">Jan 2019 - Nov 2025</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-500">PT. Hok Tong Cluster Kalimantan</p>
+            <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Memimpin operasional IT di enam pabrik karet dan satu kantor pusat: networking (MikroTik, VLAN, VPN),
+              server management (Proxmox, Docker, Nextcloud, OMV), CCTV, ERP support, serta IT governance dan
+              kebijakan keamanan data.
+            </p>
+          </li>
+
+          <li class="rounded-xl border border-cream-300 bg-white p-6 dark:border-white/10 dark:bg-white/5">
+            <div class="flex flex-wrap items-baseline justify-between gap-3">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">Purchasing of Stocks & Consumeables Head</h3>
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">Mar 2017 - Dec 2018</span>
+            </div>
+            <p class="mt-1 text-sm font-medium text-brand-500">PT. GMG Sentosa</p>
+            <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+              Kabag. Pembelian Bahan Penolong. Mengelola proses pengadaan operasional perusahaan, membangun pemahaman
+              lintas-fungsi antara IT dan operasi manufaktur.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- END Experience -->
+
+    <!-- Education -->
+    <section class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">03 · Education</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">
+            Fondasi yang kuat.
+          </h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Pendidikan formal di bidang Informatika, diperkuat dengan sertifikasi
+            profesional dan pelatihan intensif di AI, cybersecurity, dan cloud.
+          </p>
+        </div>
+
+        <ol class="divide-y divide-cream-300 lg:col-span-8 dark:divide-white/10">
+          <li class="grid grid-cols-12 gap-4 py-5 first:pt-0">
+            <div class="col-span-12 sm:col-span-3">
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2023 - 2025</span>
+            </div>
+            <div class="col-span-12 sm:col-span-9">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                Magister Informatika · S2 (M.Kom.)
+              </h3>
+              <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                Universitas AMIKOM Yogyakarta · Yogyakarta
+              </p>
+              <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                Mempelajari Business Intelligence, Artificial Intelligence, Data Science, Machine Learning, Big Data,
+                Cyber Security, dan Software Engineering. Fokus penelitian pada peramalan pembelian bahan baku
+                menggunakan model LSTM dan optimasi hyperparameter untuk mendukung pengambilan keputusan berbasis
+                data.
+              </p>
+            </div>
+          </li>
+          <li class="grid grid-cols-12 gap-4 py-5">
+            <div class="col-span-12 sm:col-span-3">
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2021 - 2022</span>
+            </div>
+            <div class="col-span-12 sm:col-span-9">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                Sarjana Sistem Informasi · S1 (S.Kom.)
+              </h3>
+              <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                Universitas Nusa Mandiri · Jakarta
+              </p>
+              <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                Mempelajari analisis dan perancangan sistem informasi, pengembangan aplikasi, basis data, business
+                intelligence, ERP, audit sistem informasi, serta manajemen proyek TI. Penelitian berfokus pada sistem
+                pendukung keputusan menggunakan metode AHP untuk pemilihan aplikasi video conference perusahaan.
+              </p>
+            </div>
+          </li>
+          <li class="grid grid-cols-12 gap-4 py-5">
+            <div class="col-span-12 sm:col-span-3">
+              <span class="font-mono text-xs text-cream-600 dark:text-cream-500">2014 - 2017</span>
+            </div>
+            <div class="col-span-12 sm:col-span-9">
+              <h3 class="text-[1.375rem] font-normal leading-snug tracking-tight">
+                Diploma Manajemen Informatika · D3 (A.Md.)
+              </h3>
+              <p class="mt-1 text-sm font-medium text-cream-700 dark:text-cream-500">
+                AMIK BSI Pontianak · Pontianak
+              </p>
+              <p class="mt-3 text-sm/relaxed text-cream-700 dark:text-cream-500">
+                Mempelajari dasar-dasar pemrograman, basis data, jaringan komputer, sistem informasi, analisis sistem,
+                dan pengelolaan teknologi informasi. Membentuk fondasi teknis dalam pengembangan aplikasi,
+                administrasi sistem, pemecahan masalah TI, serta penerapan teknologi untuk kebutuhan organisasi dan
+                bisnis.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <!-- END Education -->
+
+    <!-- Projects -->
+    <section id="projects" class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">04 · Projects</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">Selected work.</h2>
+        </div>
+        <a
+          href="/projects"
+          class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white"
+        >Selengkapnya →</a>
+      </div>
+
+      <!-- Static rendered projects -->
+      <div class="mt-10 grid gap-4 md:grid-cols-2">
+        {latestProjects.map(p => <ProjectCard project={p} />)}
+      </div>
+    </section>
+    <!-- END Projects -->
+
+    <!-- Blog Terbaru -->
+    <section id="blog" class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <!-- Kiri -->
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">05 · Blog</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">Catatan terbaru.</h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Tulisan seputar IT infrastructure, machine learning, dan hal-hal teknis yang layak didokumentasikan.
+          </p>
+        </div>
+
+        <!-- Kanan -->
+        <div class="lg:col-span-8">
+          <div class="mb-5 flex items-center justify-end">
+            <a
+              href="/blog"
+              class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white"
+            >Selengkapnya →</a>
+          </div>
+
+          <!-- Loading -->
+          <div id="blog-loading" class="flex items-center justify-center rounded-xl border border-cream-300 py-12 dark:border-white/10">
+            <span class="inline-flex items-center gap-2.5 font-mono text-xs text-cream-500">
+              <svg class="size-4 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+              </svg>
+              Memuat postingan…
+            </span>
+          </div>
+
+          <!-- Error -->
+          <div id="blog-error" class="hidden rounded-xl border border-cream-300 p-6 text-center dark:border-white/10">
+            <p class="font-mono text-xs text-cream-500" id="blog-error-msg">Gagal memuat postingan.</p>
+            <button onclick="loadLatestPosts()" class="mt-3 inline-flex h-8 items-center rounded-md border border-cream-300 px-3 text-xs hover:bg-cream-50 dark:border-white/10 dark:hover:bg-white/5 cursor-pointer">
+              Coba lagi
+            </button>
+          </div>
+
+          <!-- Cards container -->
+          <div id="blog-cards" class="hidden overflow-hidden rounded-xl border border-cream-300 dark:border-white/10"></div>
+        </div>
+      </div>
+    </section>
+    <!-- END Blog Terbaru -->
+
+    <!-- Activity Terbaru -->
+    <section id="activity" class="border-b border-cream-300 py-20 dark:border-white/10">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">06 · Activities</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">Kegiatan terkini.</h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Seminar, training, uji kompetensi, dan aktivitas pengembangan profesional yang terus dijalani.
+          </p>
+        </div>
+
+        <div class="lg:col-span-8">
+          <div class="mb-5 flex items-center justify-end">
+            <a
+              href="/activities"
+              class="text-sm font-medium text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white"
+            >Selengkapnya →</a>
+          </div>
+
+          <!-- Static Rendered 3 Activities -->
+          <div class="overflow-hidden rounded-xl border border-cream-300 dark:border-white/10">
+            {recentActivities.map((a, i) => {
+              const meta = getMeta(a.type);
+              const isLast = i === recentActivities.length - 1;
+              const border = isLast ? "" : "border-b border-cream-300 dark:border-white/10";
+              const hasCred = a.credential_url && a.credential_url !== "#";
+
+              return (
+                <div class={`group ${border} p-5 hover:bg-cream-50 dark:hover:bg-white/4 transition-colors duration-150`}>
+                  <div class="flex flex-wrap items-start justify-between gap-3">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <span class={`rounded-full px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-tight ${meta.badgeClass}`}>
+                        {meta.label}
+                      </span>
+                      <span class="font-mono text-[10px] text-cream-400 dark:text-cream-600">
+                        {a.date}{a.location ? ` · ${a.location}` : ""}
+                      </span>
+                    </div>
+                    {hasCred && (
+                      <a
+                        href={a.credential_url}
+                        target="_blank"
+                        rel="noopener"
+                        class="inline-flex items-center gap-1 font-mono text-[10px] text-brand-500 hover:text-brand-600 transition-colors"
+                      >
+                        Lihat Credential
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-3 shrink-0">
+                          <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+                        </svg>
+                      </a>
+                    )}
+                  </div>
+                  <h3 class="mt-2.5 text-[0.9375rem] font-medium leading-snug tracking-tight">
+                    {a.name}
+                  </h3>
+                  <p class="mt-1 text-[11px] font-medium text-cream-500 dark:text-cream-600">
+                    {a.organizer}
+                  </p>
+                  <p class="mt-2 text-sm/relaxed text-cream-600 dark:text-cream-500 line-clamp-2">
+                    {a.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Activity Terbaru -->
+
+    <!-- Contact / Social -->
+    <section id="contact" class="py-20">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">07 · Contact</span>
+          <h2 class="mt-3 text-3xl font-normal leading-tight tracking-tight md:text-4xl">Mari berkolaborasi.</h2>
+          <p class="mt-5 text-sm/relaxed text-cream-700 dark:text-cream-500">
+            Terbuka untuk peluang baru di bidang IT infrastructure, AI engineering, atau peran teknis strategis. Biasanya merespons dalam 1 hari kerja.
+          </p>
+          <a
+            href="mailto:royandika.mkom@gmail.com"
+            class="mt-6 inline-flex h-10 items-center gap-2 rounded-md bg-brand-500 px-5 text-sm font-medium text-white hover:bg-brand-600"
+          >
+            Hubungi saya
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="size-4">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="lg:col-span-8">
+          <dl class="grid grid-cols-1 divide-y divide-cream-300 rounded-xl border border-cream-300 bg-white sm:grid-cols-2 sm:divide-y-0 sm:divide-x dark:divide-white/10 dark:border-white/10 dark:bg-white/5">
+            <div class="p-6">
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Location</dt>
+              <dd class="mt-2 font-medium">Pontianak, Indonesia</dd>
+            </div>
+            <div class="p-6">
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Perusahaan</dt>
+              <dd class="mt-2 font-medium">Universitas OSO</dd>
+            </div>
+            <div class="border-t border-cream-300 p-6 dark:border-white/10">
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Website</dt>
+              <dd class="mt-2">
+                <a href="https://royandika.my.id" class="font-mono text-sm text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">royandika.my.id</a>
+              </dd>
+            </div>
+            <div class="border-t border-cream-300 p-6 dark:border-white/10">
+              <dt class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Email</dt>
+              <dd class="mt-2">
+                <a href="mailto:royandika.mkom@gmail.com" class="font-mono text-sm text-cream-900 underline decoration-cream-400 underline-offset-4 hover:decoration-cream-900 dark:text-white dark:decoration-white/30 dark:hover:decoration-white">royandika.mkom@gmail.com</a>
+              </dd>
+            </div>
+          </dl>
+
+          <!-- Social links -->
+          <ul class="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
+            <li>
+              <a href="https://linkedin.com/in/royandika" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">LinkedIn</span>
+                  <p class="mt-1 text-sm font-medium">Profil Profesional</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/royandika" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">GitHub</span>
+                  <p class="mt-1 text-sm font-medium">Repositori Kode</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://blog.royandika.my.id" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Personal Blog</span>
+                  <p class="mt-1 text-sm font-medium">blog.royandika.my.id</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://sinta.kemdiktisaintek.go.id/authors/profile/7019582/" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">SINTA</span>
+                  <p class="mt-1 text-sm font-medium">Author Profile</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=g5LJY5AAAAAJ&hl=en" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">Google Scholar</span>
+                  <p class="mt-1 text-sm font-medium">Published Works</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://orcid.org/0000-0001-8326-2265" target="_blank" rel="noopener" class="flex items-center justify-between rounded-xl border border-cream-300 bg-white px-5 py-4 hover:bg-cream-50 dark:border-white/10 dark:bg-white/5 dark:hover:bg-white/10">
+                <div>
+                  <span class="text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">ORCID</span>
+                  <p class="mt-1 text-sm font-medium">ORCID Identifier</p>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="size-4 text-cream-600 dark:text-cream-500">
+                  <path d="M7 7h10v10" /><path d="M7 17 17 7" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Client-side Blog loader for recent posts -->
+  <script is:inline>
+    (function () {
+      const BLOG_URL = "https://blog.royandika.my.id";
+      const MAX_POSTS = 3;
+      const SUMMARY_LEN = 120;
+
+      const elLoading = document.getElementById("blog-loading");
+      const elError = document.getElementById("blog-error");
+      const elCards = document.getElementById("blog-cards");
+
+      function fmtDate(iso) {
+        return new Date(iso).toLocaleDateString("id-ID", {
+          day: "numeric", month: "long", year: "numeric"
+        });
+      }
+      function stripHtml(html) {
+        const d = document.createElement("div");
+        d.innerHTML = html;
+        return d.textContent || d.innerText || "";
+      }
+      function getThumb(entry) {
+        const m = entry["media$thumbnail"];
+        if (m?.url) return m.url.replace(/\/s\d+\//, "/s320/");
+        const match = (entry.content?.$t || "").match(/<img[^>]+src=["']([^"']+)["']/i);
+        return match ? match[1] : null;
+      }
+      function getUrl(entry) {
+        return (entry.link || []).find(l => l.rel === "alternate")?.href || "#";
+      }
+
+      function renderCard(entry, isLast) {
+        const title = entry.title?.$t || "(tanpa judul)";
+        const date = fmtDate(entry.published?.$t || "");
+        const url = getUrl(entry);
+        const thumb = getThumb(entry);
+        const rawText = entry.summary?.$t
+          ? stripHtml(entry.summary.$t)
+          : stripHtml(entry.content?.$t || "");
+        const summary = rawText.trim().slice(0, SUMMARY_LEN) + "…";
+        const border = isLast ? "" : "border-b border-cream-300 dark:border-white/10";
+
+        const thumbHtml = thumb
+          ? `<div class="relative w-24 sm:w-28 shrink-0 overflow-hidden">
+               <img src="${thumb}" alt="${title}"
+                    class="h-full w-full object-cover transition-transform duration-300
+                           group-hover:scale-105"
+                    loading="lazy" onerror="this.closest('div').remove()" />
+             </div>`
+          : "";
+
+        return `
+          <article class="group ${border} flex min-h-[6rem] hover:bg-cream-50 dark:hover:bg-white/4
+                            transition-colors duration-150">
+            ${thumbHtml}
+            <a href="${url}" target="_blank" rel="noopener"
+               class="flex flex-1 flex-col justify-between gap-1 p-4 sm:p-5">
+              <div>
+                <p class="font-mono text-[10px] text-cream-400 dark:text-cream-600">${date}</p>
+                <h3 class="mt-1 text-[0.9375rem] font-medium leading-snug tracking-tight
+                           line-clamp-2 group-hover:text-brand-600 dark:group-hover:text-brand-400
+                           transition-colors duration-150">
+                  ${title}
+                </h3>
+                <p class="mt-1.5 text-sm/relaxed text-cream-600 dark:text-cream-500 line-clamp-2">
+                  ${summary}
+                </p>
+              </div>
+              <span class="inline-flex items-center gap-1.5 font-mono text-xs
+                           text-brand-500 opacity-0 group-hover:opacity-100
+                           transition-opacity duration-150">
+                Baca selengkapnya
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                  stroke-linejoin="round" class="size-3">
+                  <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </article>`;
+      }
+
+      function showError(msg) {
+        if (!elLoading || !elError) return;
+        elLoading.classList.add("hidden");
+        const msgEl = document.getElementById("blog-error-msg");
+        if (msgEl) msgEl.textContent = "Gagal memuat: " + msg;
+        elError.classList.remove("hidden");
+      }
+
+      window.loadLatestPosts = function () {
+        if (!elLoading || !elError || !elCards) return;
+        elLoading.classList.remove("hidden");
+        elError.classList.add("hidden");
+        elCards.classList.add("hidden");
+
+        const cbName = "_blogCb_" + Date.now();
+        const timer = setTimeout(() => {
+          cleanup();
+          showError("Waktu habis. Periksa koneksi internet.");
+        }, 10000);
+
+        function cleanup() {
+          clearTimeout(timer);
+          delete window[cbName];
+          const old = document.getElementById("_blogJsonp");
+          if (old) old.remove();
+        }
+
+        window[cbName] = function (data) {
+          cleanup();
+          const entries = (data.feed?.entry || []).slice(0, MAX_POSTS);
+          if (!entries.length) { showError("Belum ada postingan."); return; }
+
+          elCards.innerHTML = entries
+            .map((e, i) => renderCard(e, i === entries.length - 1))
+            .join("");
+
+          elLoading.classList.add("hidden");
+          elCards.classList.remove("hidden");
+        };
+
+        const s = document.createElement("script");
+        s.id = "_blogJsonp";
+        s.src = `${BLOG_URL}/feeds/posts/default/-/Indonesia?alt=json-in-script&callback=${cbName}&max-results=${MAX_POSTS}&orderby=published`;
+        s.onerror = () => { cleanup(); showError("Gagal memuat feed blog."); };
+        document.head.appendChild(s);
+      };
+
+      loadLatestPosts();
+    })();
+  </script>
+</Layout>

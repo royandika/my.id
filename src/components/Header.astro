@@ -1,0 +1,166 @@
+---
+interface Props {
+  activePage?: 'home' | 'projects' | 'blog' | 'activities';
+}
+
+const { activePage } = Astro.props;
+---
+
+<header class="border-b border-cream-300 dark:border-white/10">
+  <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 lg:px-10">
+    <!-- Wordmark -->
+    <a href="/" class="inline-flex items-baseline gap-1 font-medium tracking-tight">
+      royandika.my.id
+    </a>
+    <!-- END Wordmark -->
+
+    <!-- Right side: nav + actions -->
+    <div class="flex items-center gap-2 sm:gap-5">
+      <nav class="hidden items-center gap-6 md:flex">
+        <a
+          href="/#about"
+          class={`text-sm font-medium transition-colors ${
+            activePage === 'home'
+              ? 'text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white'
+              : 'text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white'
+          }`}
+        >About</a>
+        <a
+          href="/#experience"
+          class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white"
+        >Experience</a>
+        <a
+          href="/projects"
+          class={`text-sm font-medium transition-colors ${
+            activePage === 'projects'
+              ? 'text-cream-900 dark:text-white font-semibold'
+              : 'text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white'
+          }`}
+        >Projects</a>
+        <a
+          href="/blog"
+          class={`text-sm font-medium transition-colors ${
+            activePage === 'blog'
+              ? 'text-cream-900 dark:text-white font-semibold'
+              : 'text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white'
+          }`}
+        >Blog</a>
+        <a
+          href="/activities"
+          class={`text-sm font-medium transition-colors ${
+            activePage === 'activities'
+              ? 'text-cream-900 dark:text-white font-semibold'
+              : 'text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white'
+          }`}
+        >Activities</a>
+        <a
+          href="/#contact"
+          class="text-sm font-medium text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white"
+        >Contact</a>
+      </nav>
+
+      <!-- Toggle Dark Mode -->
+      <button
+        id="theme-toggle-btn"
+        type="button"
+        class="inline-flex size-9 items-center justify-center rounded-md text-cream-700 hover:text-cream-900 dark:text-cream-500 dark:hover:text-white cursor-pointer"
+        aria-label="Toggle theme"
+      >
+        <!-- Sun icon (shown in dark mode) -->
+        <svg
+          id="sun-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hidden size-5"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg
+          id="moon-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.75"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="hidden size-5"
+        >
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+        </svg>
+      </button>
+
+      <!-- Download CTA (ink button) -->
+      <a
+        href="https://drive.google.com/file/d/11JfHK7vPqR825hJrnKMGR04B7UBXD14k/view?usp=sharing"
+        target="_blank"
+        rel="noopener"
+        class="inline-flex h-11 items-center gap-2 rounded-md bg-cream-900 px-5 text-sm font-medium text-cream-100 hover:bg-cream-800 dark:bg-white dark:text-cream-950 dark:hover:bg-white/90"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="size-4"
+        >
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+          <polyline points="7 10 12 15 17 10" />
+          <line x1="12" x2="12" y1="15" y2="3" />
+        </svg>
+        <span class="hidden sm:inline">Download CV</span>
+        <span class="sm:hidden">CV</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  function updateThemeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    if (sunIcon && moonIcon) {
+      if (isDark) {
+        sunIcon.classList.remove('hidden');
+        moonIcon.classList.add('hidden');
+      } else {
+        sunIcon.classList.add('hidden');
+        moonIcon.classList.remove('hidden');
+      }
+    }
+  }
+
+  function initTheme() {
+    updateThemeIcons();
+    const btn = document.getElementById('theme-toggle-btn');
+    if (btn) {
+      btn.onclick = () => {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateThemeIcons();
+      };
+    }
+  }
+
+  // Run on load and view transitions
+  initTheme();
+  document.addEventListener('astro:after-swap', initTheme);
+</script>

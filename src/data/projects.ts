@@ -1,24 +1,15 @@
-/**
- * projects.js — Data Portofolio & Publikasi Roy Andika, S.Kom., M.Kom.
- * ============================================================
- * Untuk menambah / edit / hapus entri, cukup ubah array PROJECTS di bawah.
- * Tidak perlu menyentuh index.html sama sekali.
- * ============================================================
- *
- * Properti tiap objek:
- *   id        {number}  - Nomor urut (ditampilkan di sudut kanan kartu)
- *   tags      {string}  - Kategori dan Tahun (contoh: "Publikasi · 2022" atau "Project · 2024")
- *   tagColor  {string}  - Nama warna pastel Tailwind: lavender | azure | mint | peach | gold
- *   title     {string}  - Judul proyek / publikasi
- *   desc      {string}  - Deskripsi singkat
- *   linkLabel {string}  - Teks tautan (atau nama penerbit / institusi)
- *   linkUrl   {string}  - URL tautan atau "#" jika belum tersedia
- */
+export interface Project {
+  id: number;
+  tags: string;
+  tagColor: "lavender" | "azure" | "mint" | "peach" | "gold" | string;
+  title: string;
+  desc: string;
+  linkLabel: string;
+  linkUrl: string;
+}
 
-const PROJECTS = [
-
+export const PROJECTS: Project[] = [
   // ── PUBLIKASI ────────────────────────────────────────────────────────────
-
   {
     id: 1,
     tags: "Publikasi · 2025",
@@ -39,7 +30,6 @@ const PROJECTS = [
   },
 
   // ── PROYEK IT INFRASTRUCTURE ─────────────────────────────────────────────
-
   {
     id: 3,
     tags: "Project · 2018",
@@ -87,7 +77,6 @@ const PROJECTS = [
   },
 
   // ── PROYEK PENGEMBANGAN APLIKASI ─────────────────────────────────────────
-
   {
     id: 8,
     tags: "Project · 2020",
@@ -124,15 +113,4 @@ const PROJECTS = [
     linkLabel: "github.com/royandika",
     linkUrl: "https://github.com/royandika",
   },
-
-  // ── Tambahkan entri baru di bawah ini ────────────────────────────────────
-  // {
-  //   id: 12,
-  //   tags: "Project · 2026",
-  //   tagColor: "mint",
-  //   title: "Nama Proyek Baru",
-  //   desc: "Deskripsi singkat...",
-  //   linkLabel: "contoh.com",
-  //   linkUrl: "https://contoh.com",
-  // },
 ];

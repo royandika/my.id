@@ -1,0 +1,285 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { ACTIVITIES } from '../data/activities';
+
+// Reverse for newest first default
+const activitiesJson = JSON.stringify([...ACTIVITIES].reverse());
+---
+
+<Layout
+  title="Activities — Roy Andika, M.Kom."
+  description="Daftar lengkap kegiatan seminar, training, kompetensi, dan aktivitas profesional Roy Andika."
+  activePage="activities"
+>
+  <main class="mx-auto max-w-6xl px-5 lg:px-10">
+    <!-- HERO -->
+    <section class="border-b border-cream-300 py-16 dark:border-white/10">
+      <span class="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.08em] text-cream-600 dark:text-cream-500">
+        <span class="size-1.5 rounded-full bg-brand-500"></span>
+        Kegiatan &amp; Aktivitas
+      </span>
+      <h1 class="mt-4 text-4xl font-normal leading-tight tracking-[-0.02em] md:text-5xl">
+        Pengembangan diri<span class="text-brand-500">.</span>
+      </h1>
+      <p class="mt-4 max-w-xl text-sm/relaxed text-cream-700 dark:text-cream-500">
+        Dokumentasi seminar, training, uji kompetensi, workshop, dan aktivitas
+        pengembangan profesional yang telah diikuti.
+      </p>
+    </section>
+
+    <!-- TOOLBAR: stat + filter + search -->
+    <section class="border-b border-cream-300 py-5 dark:border-white/10">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Stat total -->
+          <span id="act-meta" class="font-mono text-xs text-cream-500 dark:text-cream-600">
+            Memuat…
+          </span>
+          <!-- Filter chip per tipe -->
+          <div id="type-filters" class="flex flex-wrap gap-1.5"></div>
+        </div>
+
+        <!-- Search -->
+        <div class="relative">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="pointer-events-none absolute left-3 top-1/2 size-4 -translate-y-1/2 text-cream-400"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input
+            id="act-search"
+            type="search"
+            placeholder="Cari kegiatan…"
+            class="h-9 w-56 rounded-md border border-cream-300 bg-white pl-9 pr-4 text-sm placeholder:text-cream-400 focus:border-brand-400 focus:outline-none dark:border-white/10 dark:bg-white/5 dark:text-cream-200 dark:placeholder:text-cream-600 dark:focus:border-brand-500"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- LIST ACTIVITIES -->
+    <section class="py-8">
+      <!-- Empty state -->
+      <div id="act-empty" class="hidden rounded-xl border border-cream-300 p-10 text-center dark:border-white/10">
+        <p class="font-mono text-sm text-cream-500">Tidak ada kegiatan yang cocok.</p>
+        <button
+          onclick="clearActFilters()"
+          class="mt-4 inline-flex h-9 items-center rounded-md border border-cream-300 px-4 text-sm hover:bg-cream-50 dark:border-white/10 dark:hover:bg-white/5 cursor-pointer"
+        >
+          Hapus filter
+        </button>
+      </div>
+
+      <!-- List container -->
+      <div id="act-list" class="overflow-hidden rounded-xl border border-cream-300 dark:border-white/10"></div>
+
+      <!-- Pagination -->
+      <div id="act-pagination" class="mt-6 hidden items-center justify-between">
+        <button
+          id="act-btn-prev"
+          onclick="actChangePage(-1)"
+          class="inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm hover:bg-cream-50 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/10 dark:hover:bg-white/5 cursor-pointer"
+        >
+          ← Sebelumnya
+        </button>
+        <span id="act-page-info" class="font-mono text-xs text-cream-500 dark:text-cream-600"></span>
+        <button
+          id="act-btn-next"
+          onclick="actChangePage(1)"
+          class="inline-flex h-9 items-center gap-2 rounded-md border border-cream-300 px-4 text-sm hover:bg-cream-50 disabled:cursor-not-allowed disabled:opacity-35 dark:border-white/10 dark:hover:bg-white/5 cursor-pointer"
+        >
+          Berikutnya →
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script is:inline define:vars={{ activitiesJson }}>
+    const ACT_PER_PAGE = 10;
+    const allActs = JSON.parse(activitiesJson);
+
+    const TYPE_META = {
+      seminar: { badgeClass: "bg-azure/25 text-cream-900 dark:text-cream-100", label: "Seminar" },
+      training: { badgeClass: "bg-mint/25 text-cream-900 dark:text-cream-100", label: "Training" },
+      kompetensi: { badgeClass: "bg-gold/25 text-cream-900 dark:text-cream-100", label: "Kompetensi" },
+      workshop: { badgeClass: "bg-lavender/25 text-cream-900 dark:text-cream-100", label: "Workshop" },
+      webinar: { badgeClass: "bg-peach/25 text-cream-900 dark:text-cream-100", label: "Webinar" },
+    };
+
+    function tmeta(type) {
+      return TYPE_META[type?.toLowerCase()] || { badgeClass: "bg-azure/25 text-cream-900 dark:text-cream-100", label: type || "Lainnya" };
+    }
+
+    const ARROW = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      class="size-3 shrink-0 inline-block">
+      <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+    </svg>`;
+
+    let filtered = [...allActs];
+    let activeType = null;
+    let actPage = 1;
+
+    const elList = document.getElementById("act-list");
+    const elEmpty = document.getElementById("act-empty");
+    const elPaginate = document.getElementById("act-pagination");
+    const elMeta = document.getElementById("act-meta");
+    const elSearch = document.getElementById("act-search");
+    const elFilters = document.getElementById("type-filters");
+    const elBtnPrev = document.getElementById("act-btn-prev");
+    const elBtnNext = document.getElementById("act-btn-next");
+    const elPageInfo = document.getElementById("act-page-info");
+
+    function renderActRow(a, isLast) {
+      const { badgeClass, label } = tmeta(a.type);
+      const border = isLast ? "" : "border-b border-cream-300 dark:border-white/10";
+      const credLink = a.credential_url && a.credential_url !== "#"
+        ? `<a href="${a.credential_url}" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-1 font-mono text-[10px] text-brand-500
+                    hover:text-brand-600 transition-colors break-all">
+             ${a.credential_url} ${ARROW}
+           </a>`
+        : "";
+
+      return `
+        <div class="group ${border} p-5 hover:bg-cream-50 dark:hover:bg-white/4 transition-colors duration-150">
+          <div class="flex flex-wrap items-start justify-between gap-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="rounded-full px-2.5 py-0.5 text-[10px] font-semibold
+                           uppercase tracking-tight ${badgeClass}">
+                ${label}
+              </span>
+              <span class="font-mono text-[10px] text-cream-400 dark:text-cream-600">
+                ${a.date}${a.location ? " · " + a.location : ""}
+              </span>
+            </div>
+            ${credLink}
+          </div>
+          <h3 class="mt-2.5 text-[0.9375rem] font-medium leading-snug tracking-tight">
+            ${a.name}
+          </h3>
+          <p class="mt-1 text-[11px] font-medium text-cream-500 dark:text-cream-600">
+            ${a.organizer}
+          </p>
+          <p class="mt-2 text-sm/relaxed text-cream-600 dark:text-cream-500">
+            ${a.description}
+          </p>
+        </div>`;
+    }
+
+    function renderActPage() {
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / ACT_PER_PAGE));
+      const start = (actPage - 1) * ACT_PER_PAGE;
+      const slice = filtered.slice(start, start + ACT_PER_PAGE);
+
+      elEmpty.classList.add("hidden");
+      elList.classList.remove("hidden");
+      elPaginate.classList.add("hidden");
+      elPaginate.classList.remove("flex");
+
+      if (total === 0) {
+        elList.classList.add("hidden");
+        elEmpty.classList.remove("hidden");
+        return;
+      }
+
+      elList.innerHTML = slice.map((a, i) => renderActRow(a, i === slice.length - 1)).join("");
+
+      if (totalPages > 1) {
+        elPaginate.classList.remove("hidden");
+        elPaginate.classList.add("flex");
+        elPageInfo.textContent = `Hal. ${actPage} / ${totalPages} · ${total} kegiatan`;
+        elBtnPrev.disabled = actPage <= 1;
+        elBtnNext.disabled = actPage >= totalPages;
+      }
+    }
+
+    function applyActFilters() {
+      const q = elSearch.value.toLowerCase().trim();
+      filtered = allActs.filter(a => {
+        const matchType = !activeType || a.type?.toLowerCase() === activeType;
+        const matchQ = !q || (
+          a.name.toLowerCase().includes(q) ||
+          a.organizer.toLowerCase().includes(q) ||
+          a.description.toLowerCase().includes(q) ||
+          (a.location && a.location.toLowerCase().includes(q))
+        );
+        return matchType && matchQ;
+      });
+      actPage = 1;
+      updateActMeta();
+      renderActPage();
+    }
+
+    function updateActMeta() {
+      const q = elSearch.value.trim();
+      elMeta.textContent = (q || activeType)
+        ? `${filtered.length} dari ${allActs.length} kegiatan`
+        : `${allActs.length} kegiatan`;
+    }
+
+    function renderTypeChips() {
+      const counts = {};
+      allActs.forEach(a => {
+        const k = a.type?.toLowerCase() || "lainnya";
+        counts[k] = (counts[k] || 0) + 1;
+      });
+      elFilters.innerHTML = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .map(([type, count]) => {
+          const { label } = tmeta(type);
+          return `<button onclick="toggleActType('${type}')"
+                    id="actchip-${type}"
+                    class="act-chip rounded-full border border-cream-300 px-2.5 py-0.5
+                           text-[10px] font-semibold uppercase tracking-tight
+                           text-cream-700 hover:bg-cream-200
+                           dark:border-white/10 dark:text-cream-400 dark:hover:bg-white/10
+                           transition-colors duration-150 cursor-pointer">
+                    ${label} <span class="opacity-50">${count}</span>
+                  </button>`;
+        }).join("");
+    }
+
+    window.toggleActType = function (type) {
+      activeType = activeType === type ? null : type;
+      document.querySelectorAll(".act-chip").forEach(btn => {
+        const active = btn.id === `actchip-${activeType}`;
+        btn.classList.toggle("bg-cream-900", active);
+        btn.classList.toggle("text-cream-50", active);
+        btn.classList.toggle("dark:bg-white", active);
+        btn.classList.toggle("dark:text-cream-950", active);
+        btn.classList.toggle("border-transparent", active);
+      });
+      applyActFilters();
+    };
+
+    window.clearActFilters = function () {
+      activeType = null;
+      elSearch.value = "";
+      document.querySelectorAll(".act-chip").forEach(btn =>
+        btn.classList.remove("bg-cream-900", "text-cream-50", "dark:bg-white", "dark:text-cream-950", "border-transparent")
+      );
+      applyActFilters();
+    };
+
+    window.actChangePage = function (dir) {
+      actPage += dir;
+      renderActPage();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    elSearch.addEventListener("input", applyActFilters);
+
+    renderTypeChips();
+    updateActMeta();
+    renderActPage();
+  </script>
+</Layout>
